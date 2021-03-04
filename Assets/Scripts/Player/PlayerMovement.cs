@@ -10,17 +10,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckT;
     private Vector2 refVel = Vector2.zero;
+    private Animator pAnimator;
 
     
     public bool canMove;
-    private bool grounded;
-    private float xSpeed;
+    private bool grounded = false;
+    private float xSpeed = 0f;
+    private bool faceRight = true;
     // Start is called before the first frame update
     void Start()
     {
         playerT = gameObject.transform;
         canMove = true;
         rb2d = GetComponent<Rigidbody2D>();
+        pAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,16 @@ public class PlayerMovement : MonoBehaviour
     {
         grounded = CheckGrounded();
         xSpeed = rb2d.velocity.x;
+
+        //set animator parameters
+        pAnimator.SetBool("grounded", grounded);
+        pAnimator.SetFloat("speed", Mathf.Abs(xSpeed));
+
+        //flip sprite around based on movement speed
+        if (faceRight && xSpeed < 0)
+            Flip();
+        if (!faceRight && xSpeed > 0)
+            Flip();
 
         if (canMove)
         {
@@ -95,10 +108,22 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckGrounded()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckT.position, groundCheckRadius, groundLayer);
-        if (colliders.Length > 0)
+        for (int i = 0; i < colliders.Length; i++)
         {
-            return true;
+            if (colliders[i].gameObject != gameObject)
+            {
+                return true;
+            }
         }
         return false;
+    }
+
+    //flips sprite
+    private void Flip()
+    {
+        faceRight = !faceRight;
+        Vector3 scale = playerT.localScale;
+        scale.x *= -1;
+        playerT.localScale = scale;
     }
 }
