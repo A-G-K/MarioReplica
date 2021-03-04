@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheckT;
     private Vector2 refVel = Vector2.zero;
 
-
+    
     public bool canMove;
     private bool grounded;
     private float xSpeed;
@@ -29,32 +29,36 @@ public class PlayerMovement : MonoBehaviour
         grounded = CheckGrounded();
         xSpeed = rb2d.velocity.x;
 
-        if (rb2d.velocity.y < 0)
-        {
-            rb2d.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
-        }
-        else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb2d.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
-        }
-
-
-
-        if (System.Math.Abs(rb2d.velocity.x) > 0.05 && !Input.GetButton("Horizontal"))
-        {
-            if (rb2d.velocity.x > 0)
-            {
-                rb2d.velocity += Vector2.left * hFrrictionMultiplier * Time.deltaTime;
-            }
-            else
-            {
-                rb2d.velocity += Vector2.right * hFrrictionMultiplier * Time.deltaTime;
-            }
-        }
-
-
         if (canMove)
         {
+
+            //if falling, increase gravity
+            if (rb2d.velocity.y < 0)
+            {
+                rb2d.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
+            }
+            //if ascending but not holding jump, increase gravity (this makes you jump higher when you hold the jump button
+            else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                rb2d.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
+            }
+
+
+            //side to side friction
+            if (System.Math.Abs(rb2d.velocity.x) > 0.05 && !Input.GetButton("Horizontal"))
+            {
+                if (rb2d.velocity.x > 0)
+                {
+                    rb2d.velocity += Vector2.left * hFrrictionMultiplier * Time.deltaTime;
+                }
+                else
+                {
+                    rb2d.velocity += Vector2.right * hFrrictionMultiplier * Time.deltaTime;
+                }
+            }
+
+        
+            //input button checks
             if (Input.GetButton("Horizontal"))
             {
                 Move();
@@ -69,13 +73,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    //changes velocity of player, accelTime determines how fast player achieves max speed
     private void Move()
     {
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * maxSpeed, rb2d.velocity.y);
         rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref refVel, accelTime);
     }
 
+    //makes player jump
     private void Jump()
     {
         if (grounded)
@@ -86,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    //checks if grounded
     private bool CheckGrounded()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckT.position, groundCheckRadius, groundLayer);
