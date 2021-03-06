@@ -16193,7 +16193,7 @@ MonoBehaviour:
   undergroundCamT: {fileID: 378899148}
   returnPipeT: {fileID: 977783008}
   playerT: {fileID: 1837449895}
-  moveOffset: 4
+  moveOffset: 3
   canCameraMove: 1
 --- !u!4 &636651817
 Transform:
@@ -46770,6 +46770,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.68
       objectReference: {fileID: 0}
@@ -46822,6 +46832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759575946316033870, guid: 6e117297e82f2f9419c5069496c29b68,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e117297e82f2f9419c5069496c29b68, type: 3}
@@ -52632,6 +52647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237542246121464874, guid: ecad67e1b3993354fadbba51383d9c6a,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4984427686855632517, guid: ecad67e1b3993354fadbba51383d9c6a,
         type: 3}
