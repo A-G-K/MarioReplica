@@ -50,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb2d.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
             }
+            else if (rb2d.velocity.y < 1)
+            {
+
+                rb2d.velocity += Vector2.up * Physics2D.gravity.y * 0.5f * fallMultiplier * Time.deltaTime;
+            }
             //if ascending but not holding jump, increase gravity (this makes you jump higher when you hold the jump button
             else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))
             {
