@@ -27,9 +27,9 @@ public class UIManager : MonoBehaviour
         //initialize player object
         //GameObject mario = GameObject.Find("Mario");
         //playerController = mario.GetComponent<PlayerController>();
-        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
-        livesManager = managers.GetComponentInChildren<LivesManager>();
-        coinsManager = managers.GetComponentInChildren<CoinsManager>();
+        GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
+        livesManager = constantManagers.GetComponentInChildren<LivesManager>();
+        coinsManager = constantManagers.GetComponentInChildren<CoinsManager>();
     }
 
     void Update()
