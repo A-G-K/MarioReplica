@@ -18,13 +18,18 @@ public class UIManager : MonoBehaviour
     //player character object
     //private PlayerController playerController;
 
+    LivesManager livesManager;
+    CoinsManager coinsManager;
+    public int score = 0;
 
     void Start()
     {
         //initialize player object
         //GameObject mario = GameObject.Find("Mario");
         //playerController = mario.GetComponent<PlayerController>();
-
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        livesManager = managers.GetComponentInChildren<LivesManager>();
+        coinsManager = managers.GetComponentInChildren<CoinsManager>();
     }
 
     void Update()
@@ -37,16 +42,8 @@ public class UIManager : MonoBehaviour
         //game over when time runs out
         if (timeLeft < 0)
         {
-            StartCoroutine(EndLevel());
+            livesManager.LoseLife();
         }
-  
-
-        //game over condition
-        //if (playerController.life <= 0)
-        //{
-        //    StartCoroutine(GameOver());
-        //    Debug.Log("GameOver");
-        //}
 
         ////reset level when R is pressed
         //if (Input.GetKeyDown(KeyCode.R))
@@ -66,22 +63,20 @@ public class UIManager : MonoBehaviour
     //update score UI text
     public void UpdateScore()
     {
-        scoreText.text = "SCORE " + 0;
+        scoreText.text = "SCORE " + score;
     }
 
     //update coins UI text
     public void UpdateCoins()
     {
-        coinsText.text = "COINS " + 0;
+        coinsText.text = "COINS " + coinsManager.coins;
     }
 
     //update lives UI text
     public void UpdateLives()
     {
-        livesText.text = "LIVES " + 0;
+        livesText.text = "LIVES " + livesManager.lives;
     }
-
-
 
     //SCENE MANAGEMENT
 
@@ -89,21 +84,8 @@ public class UIManager : MonoBehaviour
     public IEnumerator EndLevel()
 
     {
+        score += (int)Mathf.Round(timeLeft);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("LevelCleared");
-
     }
-
-    //coroutine to load game over scene after a delay
-    public IEnumerator GameOver()
-
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("GameOver");
-
-
-    }
-
 }
-
-
