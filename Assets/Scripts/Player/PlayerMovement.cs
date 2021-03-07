@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckT;
     private Vector2 refVel = Vector2.zero;
+<<<<<<< HEAD
     private Animator pAnimator;
 
     
@@ -17,19 +18,30 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded = false;
     private float xSpeed = 0f;
     private bool faceRight = true;
+=======
+
+    
+    public bool canMove;
+    private bool grounded;
+    private float xSpeed;
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     // Start is called before the first frame update
     void Start()
     {
         playerT = gameObject.transform;
         canMove = true;
         rb2d = GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
         pAnimator = GetComponentInChildren<Animator>();
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = CheckGrounded();
+<<<<<<< HEAD
         //Debug.Log("grounded = " + grounded);
         xSpeed = rb2d.velocity.x;
 
@@ -43,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
         if (!faceRight && xSpeed > 0)
             Flip();
 
+=======
+        xSpeed = rb2d.velocity.x;
+
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
         if (canMove)
         {
 
@@ -64,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
 
             //side to side friction
+<<<<<<< HEAD
             if (grounded && !Input.GetButton("Horizontal"))
             {
                 if (System.Math.Abs(rb2d.velocity.x) < 0.05)
@@ -71,6 +88,11 @@ public class PlayerMovement : MonoBehaviour
                     rb2d.velocity = Vector2.zero;
                 }
                 else if (rb2d.velocity.x > 0)
+=======
+            if (System.Math.Abs(rb2d.velocity.x) > 0.05 && !Input.GetButton("Horizontal"))
+            {
+                if (rb2d.velocity.x > 0)
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
                 {
                     rb2d.velocity += Vector2.left * hFrrictionMultiplier * Time.deltaTime;
                 }
@@ -101,7 +123,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * maxSpeed, rb2d.velocity.y);
         rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref refVel, accelTime);
+<<<<<<< HEAD
         //Debug.Log("Moving " + Input.GetAxisRaw("Horizontal"));
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     }
 
     //makes player jump
@@ -119,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckGrounded()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckT.position, groundCheckRadius, groundLayer);
+<<<<<<< HEAD
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -137,4 +163,12 @@ public class PlayerMovement : MonoBehaviour
         scale.x *= -1;
         playerT.localScale = scale;
     }
+=======
+        if (colliders.Length > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 }
