@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43057ba8a7070448b096882b7875d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setVelocity: {x: 4, y: -3}
+  travelVelocity: {x: 4, y: -3.5}
   clipInfo: {fileID: 7400000, guid: 1d3d1bdb9aeed544bb200cc813a3b4a2, type: 2}
 --- !u!1 &1351294162862617172
 GameObject:
@@ -131,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 1351294162862617172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1351294162629917602}
   m_RootOrder: 0

@@ -6,8 +6,9 @@ public class FireballController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
-    private Vector2 travelVelocity;
+    private PlayerController controller;
 
+    [SerializeField] private Vector2 travelVelocity;
     [SerializeField] private AnimationClip clipInfo;
 
 
@@ -27,8 +28,9 @@ public class FireballController : MonoBehaviour
             rb.velocity = travelVelocity;
     }
 
-    public void SetXVelocityDir(int _dir)
+    public void Initialise(PlayerController _controller, int _dir)
     {
+        controller = _controller;
         travelVelocity = new Vector2(travelVelocity.x * _dir, travelVelocity.y);
         transform.localScale = new Vector2(_dir, 1);
     }
@@ -58,6 +60,8 @@ public class FireballController : MonoBehaviour
         RigidbodyConstraints2D freeze = new RigidbodyConstraints2D();
         freeze = RigidbodyConstraints2D.FreezeAll;
         rb.constraints = freeze;
+
+        controller.ReduceCurrentFireballs();
 
         anim.SetTrigger("Explode");
         yield return new WaitForSeconds(clipInfo.length);

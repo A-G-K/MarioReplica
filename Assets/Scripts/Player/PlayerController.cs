@@ -8,27 +8,42 @@ public class PlayerController : MonoBehaviour
     public enum MarioState {SMALL, BIG, FIRE};
     private MarioState currentMarioState = MarioState.SMALL;
 
+    private PlayerMovement playerMovement;
+    private Animator anim;
+    private Rigidbody2D rb;
+    private CapsuleCollider2D playerCol;
+
     [SerializeField] private GameObject fireballPrefab;
-    [SerializeField]
+    //[SerializeField]
     [SerializeField] private Transform shootPosition;
     private int maxNumOfFireballs = 2;
     private int currentNumOfFireballs = 0;
+
+    
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerMovement = GetComponent<PlayerMovement>();
+        anim = GetComponentInChildren<Animator>();
+        playerCol = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentMarioState == MarioState.FIRE && Input.GetKeyDown(KeyCode.LeftShift))
+        //If the player is in FIRE mode and they press Q, shoot a fireball
+        if (currentMarioState == MarioState.FIRE && Input.GetKeyDown(KeyCode.Q))
         {
-            ShootFireball();
+            if (currentNumOfFireballs < maxNumOfFireballs)
+            {
+                anim.SetTrigger("shootFireball");
+                ShootFireball();
+            }
         }
 
+        //Debug tools for testing state changing
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             IncreaseMarioState();
@@ -39,31 +54,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Increases the cureent MarioState
     public void IncreaseMarioState()
     {
         if (currentMarioState != MarioState.FIRE)
         {
+            StartCoroutine(playerMovement.TempFreezeMovement(1f));
             currentMarioState += 1;
-            Debug.Log("CMS: " + currentMarioState);
+            anim.SetInteger("playerState", (int)currentMarioState);
         }
     }
 
+    //Decreases the cureent MarioState
     public void DecreaseMarioState()
     {
         if (currentMarioState != MarioState.SMALL)
         {
+            StartCoroutine(playerMovement.TempFreezeMovement(1f));
             currentMarioState -= 1;
-            Debug.Log("CMS: " + currentMarioState);
+            anim.SetInteger("playerState", (int)currentMarioState);
         }
         else
         {
             //Lives Manager . Lose Life
+            Debug.Log("LOSE");
         }
     }
 
+    //Shoot a fireball in the direction the player is facing from a specified point
     private void ShootFireball()
     {
+        currentNumOfFireballs++;
         GameObject fireballGO = Instantiate(fireballPrefab, shootPosition.position, new Quaternion());
-        //fireballGO.GetComponent<FireballController>().SetXVelocityDir();
+        fireballGO.GetComponent<FireballController>().Initialise(this, playerMovement.isFacingRight() ? 1 : -1);   
     }
+
+    public void ReduceCurrentFireballs() { currentNumOfFireballs--; }
 }
