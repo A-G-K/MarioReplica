@@ -12059,6 +12059,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 463202482}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &465816585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1843322965785545336, guid: ecad67e1b3993354fadbba51383d9c6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2339356412870568571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &465816586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465816585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5be89ba627e23468f5d2a19305dc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &465816587
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465816585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.12}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1001 &465936453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52470,7 +52504,7 @@ PrefabInstance:
     - target: {fileID: 4984427686855632517, guid: ecad67e1b3993354fadbba51383d9c6a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.9
+      value: -3.81
       objectReference: {fileID: 0}
     - target: {fileID: 4984427686855632517, guid: ecad67e1b3993354fadbba51383d9c6a,
         type: 3}

@@ -17,6 +17,8 @@ public class ItemBlockController : MonoBehaviour
 
     [SerializeField] private GameObject emptyBox;
 
+    private GameObject createdObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,22 +50,73 @@ public class ItemBlockController : MonoBehaviour
         {
             //Check state of mario
             //if state = small
-            //Instantiate(mushroom, transform.position, Quaternion.identity);
+            //createdObject = Instantiate(mushroom, transform.position, Quaternion.identity);
+            //StartCoroutine(MoveItem());
             //else
             //Instantiate(flower, transform.position, Quaternion.identity);
+            //StartCoroutine(MoveItem());
         }
 
         else if (itemInBox == Item.Star)
         {
-            Instantiate(star, transform.position, Quaternion.identity);
+            createdObject = Instantiate(star, transform.position, Quaternion.identity);
+            StartCoroutine(MoveItem());
         }
 
         else if (itemInBox == Item.Life)
         {
-            Instantiate(life, transform.position, Quaternion.identity);
+            createdObject = Instantiate(life, transform.position, Quaternion.identity);
+            StartCoroutine(MoveItem());
         }
 
         Instantiate(emptyBox, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private IEnumerator MoveItem()
+    {
+        MoveMushrooms(false);
+
+        for(int i = 0; i < 6; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            createdObject.transform.position = new Vector2(createdObject.transform.position.x, createdObject.transform.position.y + 0.11f);
+        }
+
+        MoveMushrooms(true);
+    }
+
+    private void MoveMushrooms(bool move)
+    {
+        if (createdObject.gameObject == mushroom)
+        {
+            //MushroomController controller = createdObject.GetComponent<LifeMushroomController>();
+            //controller.canMove = move;
+
+            Rigidbody2D rigidBody = createdObject.GetComponent<Rigidbody2D>();
+            if (move)
+            {
+                rigidBody.gravityScale = 1;
+            }
+            else
+            {
+                rigidBody.gravityScale = 0;
+            }
+        }
+        else if (createdObject.gameObject == life)
+        {
+            LifeMushroomController controller = createdObject.GetComponent<LifeMushroomController>();
+            controller.canMove = move;
+
+            Rigidbody2D rigidBody = createdObject.GetComponent<Rigidbody2D>();
+            if (move)
+            {
+                rigidBody.gravityScale = 1;
+            }
+            else
+            {
+                rigidBody.gravityScale = 0;
+            }
+        }
     }
 }

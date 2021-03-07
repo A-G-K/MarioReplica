@@ -10,7 +10,6 @@ public class BlockCoinController : MonoBehaviour
     float timer = 0;
     [SerializeField] float velocity = 5;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +24,7 @@ public class BlockCoinController : MonoBehaviour
         coinsManager.AddCoin();
         uiManager.score += 200;
 
+        rigidBody.gravityScale = 2;
         rigidBody.velocity = new Vector2(0, velocity);
     }
 
