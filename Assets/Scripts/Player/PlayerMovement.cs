@@ -23,13 +23,14 @@ public class PlayerMovement : MonoBehaviour
         playerT = gameObject.transform;
         canMove = true;
         rb2d = GetComponent<Rigidbody2D>();
-        pAnimator = GetComponent<Animator>();
+        pAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = CheckGrounded();
+        //Debug.Log("grounded = " + grounded);
         xSpeed = rb2d.velocity.x;
 
         //set animator parameters
@@ -63,9 +64,13 @@ public class PlayerMovement : MonoBehaviour
 
 
             //side to side friction
-            if (System.Math.Abs(rb2d.velocity.x) > 0.05 && !Input.GetButton("Horizontal"))
+            if (grounded && !Input.GetButton("Horizontal"))
             {
-                if (rb2d.velocity.x > 0)
+                if (System.Math.Abs(rb2d.velocity.x) < 0.05)
+                {
+                    rb2d.velocity = Vector2.zero;
+                }
+                else if (rb2d.velocity.x > 0)
                 {
                     rb2d.velocity += Vector2.left * hFrrictionMultiplier * Time.deltaTime;
                 }
@@ -96,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * maxSpeed, rb2d.velocity.y);
         rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref refVel, accelTime);
+        //Debug.Log("Moving " + Input.GetAxisRaw("Horizontal"));
     }
 
     //makes player jump
