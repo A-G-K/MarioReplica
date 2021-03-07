@@ -6,45 +6,45 @@ public class KoopaBehaviour : MonoBehaviour
 {
     [SerializeField] private float shellMoveSpeed = 2f;
     [SerializeField] private Collider2D mainCollider;
-    [SerializeField] private Collider2D shellCollider;
+    [SerializeField] private CollisionEventer shellCollider;
     [SerializeField] private CollisionEventer topCollider;
     [SerializeField] private CollisionEventer leftTopCollider;
     [SerializeField] private CollisionEventer rightTopCollider;
 
-    private BasicEnemyMovement basicEnemyMovement;
-    private bool shouldShell;
+    private BasicEnemy basicEnemy;
+    private bool isShell;
     private bool hasSetShellMovement;
 
-    private bool ShouldShell
+    private bool IsShell
     {
-        get { return shouldShell; }
+        get { return isShell; }
         set
         {
-            shouldShell = value;
-            basicEnemyMovement.SpriteAnimator.SetBool("ShouldShell", value);
+            isShell = value;
+            basicEnemy.SpriteAnimator.SetBool("ShouldShell", value);
         }
     }
 
     private void Awake()
     {
-        basicEnemyMovement = GetComponent<BasicEnemyMovement>();
+        basicEnemy = GetComponent<BasicEnemy>();
         shellCollider.gameObject.SetActive(false);
     }
 
     private void Start()
     {
         // We need to do this, just in case we have an animator to setup
-        ShouldShell = shouldShell;
+        IsShell = isShell;
 
         topCollider.OnCollisionEnter2DEvent += collision2d =>
         {
             TurnIntoShell();
-            basicEnemyMovement.CanMove = false;
+            basicEnemy.CanMove = false;
         };
 
         leftTopCollider.OnCollisionEnter2DEvent += collision2d =>
         {
-            if (ShouldShell && !hasSetShellMovement)
+            if (IsShell && !hasSetShellMovement)
             {
                 SetEnemyMovement(shellMoveSpeed, false);
                 hasSetShellMovement = true;
@@ -53,25 +53,38 @@ public class KoopaBehaviour : MonoBehaviour
         
         rightTopCollider.OnCollisionEnter2DEvent += collision2d =>
         {
-            if (ShouldShell && !hasSetShellMovement)
+            if (IsShell && !hasSetShellMovement)
             {
                 SetEnemyMovement(shellMoveSpeed, true);
                 hasSetShellMovement = true;
+            }
+        };
+
+        shellCollider.OnCollisionEnter2DEvent += collision2d =>
+        {
+            if (IsShell)
+            {
+                IKillable killable = collision2d.gameObject.GetComponent<IKillable>();
+
+                if (killable != null)
+                {
+                    killable.KillAndFall();
+                }
             }
         };
     }
 
     private void TurnIntoShell()
     {
-        ShouldShell = true;
+        IsShell = true;
         mainCollider.gameObject.SetActive(false);
         shellCollider.gameObject.SetActive(true);
     }
 
     private void SetEnemyMovement(float speed, bool isMovingLeft)
     {
-        basicEnemyMovement.CanMove = true;
-        basicEnemyMovement.IsMovingLeft = isMovingLeft;
-        basicEnemyMovement.moveSpeed = speed;
+        basicEnemy.CanMove = true;
+        basicEnemy.IsMovingLeft = isMovingLeft;
+        basicEnemy.moveSpeed = speed;
     }
 }

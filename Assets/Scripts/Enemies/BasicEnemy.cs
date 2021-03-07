@@ -3,12 +3,12 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BasicEnemyMovement : MonoBehaviour
+public class BasicEnemy : MonoBehaviour
 {
     public float moveSpeed = 1f;
     [SerializeField] private bool isMovingLeft = true;
     [SerializeField] private Animator spriteAnimator;
-    
+
     private Rigidbody2D rb;
     private ContactPoint2D[] contactCache = new ContactPoint2D[10];
 
@@ -53,6 +53,10 @@ public class BasicEnemyMovement : MonoBehaviour
         {
             float horizontalMovement = isMovingLeft ? -moveSpeed : moveSpeed;
             rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 

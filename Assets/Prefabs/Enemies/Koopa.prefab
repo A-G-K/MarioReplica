@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2854737265359837310}
   - component: {fileID: 5718190394486043504}
+  - component: {fileID: 1793827161957940223}
   m_Layer: 0
   m_Name: ShellCollider
   m_TagString: Untagged
@@ -59,6 +60,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36752558, y: 0.29854107}
   m_EdgeRadius: 0.01
+--- !u!114 &1793827161957940223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13400140756235455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947547b0797a4cdab478de38cb92ab45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1317453927965422448
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellMoveSpeed: 4
   mainCollider: {fileID: 1070110145877561926}
-  shellCollider: {fileID: 5718190394486043504}
+  shellCollider: {fileID: 1793827161957940223}
   topCollider: {fileID: 6941870507207421775}
   leftTopCollider: {fileID: 5220937514122585876}
   rightTopCollider: {fileID: 4234614771521233679}
