@@ -23,7 +23,11 @@ public class BasicEnemyMovement : MonoBehaviour
                 spriteAnimator.SetBool("IsMovingLeft", value);
         }
     }
-    
+
+    public bool CanMove { get; set; } = true;
+
+    public Animator SpriteAnimator => spriteAnimator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,17 +49,22 @@ public class BasicEnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontalMovement = isMovingLeft ? -moveSpeed : moveSpeed;
-        rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
+        if (CanMove)
+        {
+            float horizontalMovement = isMovingLeft ? -moveSpeed : moveSpeed;
+            rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
+        }
     }
 
     private void TryMoveOpposite(Collision2D other)
     {
+        if (!CanMove) return;
+        
         int contactCount = other.GetContacts(contactCache);
 
         for (int i = 0; i < contactCount; i++)
         {
-            Debug.Log($"{gameObject.name} with normal {contactCache[i].normal}");
+            // Debug.Log($"{gameObject.name} with normal {contactCache[i].normal}");
             
             if (contactCache[i].normal.y < 0.5f)
             {
