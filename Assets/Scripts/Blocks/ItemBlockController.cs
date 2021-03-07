@@ -76,7 +76,7 @@ public class ItemBlockController : MonoBehaviour
     private IEnumerator MoveItem()
     {
         MoveMushrooms(false);
-
+        CollidersOn(false);
         for(int i = 0; i < 6; i++)
         {
             yield return new WaitForSeconds(0.1f);
@@ -84,6 +84,7 @@ public class ItemBlockController : MonoBehaviour
         }
 
         MoveMushrooms(true);
+        CollidersOn(true);
     }
 
     private void MoveMushrooms(bool move)
@@ -117,6 +118,15 @@ public class ItemBlockController : MonoBehaviour
             {
                 rigidBody.gravityScale = 0;
             }
+        }
+    }
+
+    private void CollidersOn(bool col)
+    {
+        Collider2D[] colliders = createdObject.GetComponents<Collider2D>();
+        foreach(Collider2D collider in colliders)
+        {
+            collider.enabled = col;
         }
     }
 }
