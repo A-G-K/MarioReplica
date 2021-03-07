@@ -10,24 +10,38 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckT;
     private Vector2 refVel = Vector2.zero;
+    private Animator pAnimator;
 
     
     public bool canMove;
-    private bool grounded;
-    private float xSpeed;
+    private bool grounded = false;
+    private float xSpeed = 0f;
+    private bool faceRight = true;
     // Start is called before the first frame update
     void Start()
     {
         playerT = gameObject.transform;
         canMove = true;
         rb2d = GetComponent<Rigidbody2D>();
+        pAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = CheckGrounded();
+        //Debug.Log("grounded = " + grounded);
         xSpeed = rb2d.velocity.x;
+
+        //set animator parameters
+        pAnimator.SetBool("grounded", grounded);
+        pAnimator.SetFloat("speed", Mathf.Abs(xSpeed));
+
+        //flip sprite around based on movement speed
+        if (faceRight && xSpeed < 0)
+            Flip();
+        if (!faceRight && xSpeed > 0)
+            Flip();
 
         if (canMove)
         {
@@ -50,9 +64,13 @@ public class PlayerMovement : MonoBehaviour
 
 
             //side to side friction
-            if (System.Math.Abs(rb2d.velocity.x) > 0.05 && !Input.GetButton("Horizontal"))
+            if (grounded && !Input.GetButton("Horizontal"))
             {
-                if (rb2d.velocity.x > 0)
+                if (System.Math.Abs(rb2d.velocity.x) < 0.05)
+                {
+                    rb2d.velocity = Vector2.zero;
+                }
+                else if (rb2d.velocity.x > 0)
                 {
                     rb2d.velocity += Vector2.left * hFrrictionMultiplier * Time.deltaTime;
                 }
@@ -83,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * maxSpeed, rb2d.velocity.y);
         rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref refVel, accelTime);
+        //Debug.Log("Moving " + Input.GetAxisRaw("Horizontal"));
     }
 
     //makes player jump
@@ -100,10 +119,22 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckGrounded()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckT.position, groundCheckRadius, groundLayer);
-        if (colliders.Length > 0)
+        for (int i = 0; i < colliders.Length; i++)
         {
-            return true;
+            if (colliders[i].gameObject != gameObject)
+            {
+                return true;
+            }
         }
         return false;
+    }
+
+    //flips sprite
+    private void Flip()
+    {
+        faceRight = !faceRight;
+        Vector3 scale = playerT.localScale;
+        scale.x *= -1;
+        playerT.localScale = scale;
     }
 }
