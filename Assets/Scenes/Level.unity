@@ -11063,7 +11063,6 @@ PrefabInstance:
       value: UGbrickBlock (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 740372d2ad1e0804eb490ee4db440164, type: 3}
 --- !u!4 &378068182 stripped
 Transform:
@@ -11071,9 +11070,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 378068181}
   m_PrefabAsset: {fileID: 0}
-=======
-  m_SourcePrefab: {fileID: 100100000, guid: 9a7405f49a24d70448fd97714ce73a1b, type: 3}
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 --- !u!1 &378899147
 GameObject:
   m_ObjectHideFlags: 0
@@ -17665,11 +17661,7 @@ MonoBehaviour:
   undergroundCamT: {fileID: 378899148}
   returnPipeT: {fileID: 977783008}
   playerT: {fileID: 1837449895}
-<<<<<<< HEAD
   moveOffset: 3
-=======
-  moveOffset: 4
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
   canCameraMove: 1
 --- !u!4 &636651817
 Transform:
@@ -17686,15 +17678,9 @@ Transform:
   - {fileID: 378899148}
   - {fileID: 977783008}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &640960697
-=======
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &643843679
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -50888,7 +50874,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 1825791639, guid: 6e117297e82f2f9419c5069496c29b68, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -50897,8 +50882,6 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: m_RootOrder
@@ -50906,7 +50889,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
-<<<<<<< HEAD
       propertyPath: m_LocalScale.x
       value: 4
       objectReference: {fileID: 0}
@@ -50919,19 +50901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.11
-=======
-      propertyPath: m_LocalPosition.x
-      value: -4.68
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
       objectReference: {fileID: 0}
     - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
       value: -3.75
-=======
-      value: -3.8
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
       objectReference: {fileID: 0}
     - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
@@ -50978,7 +50952,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 8759575946316033865, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: jumpHeight
@@ -50999,8 +50972,6 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e117297e82f2f9419c5069496c29b68, type: 3}
 --- !u!1001 &1921866829
