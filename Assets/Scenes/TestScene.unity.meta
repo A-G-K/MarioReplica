@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 34b8c0cd792a35944a0558726e32fc04
+=======
+guid: 2cda990e2423bbf4892e6590ba056729
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 DefaultImporter:
   externalObjects: {}
   userData: 

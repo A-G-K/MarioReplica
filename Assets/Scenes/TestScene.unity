@@ -496,6 +496,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 36437108}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &44188523
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +554,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 --- !u!1001 &50230314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3321,6 +3324,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 144538324838108523, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: m_Size.y
@@ -3331,6 +3335,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.08483829
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     - target: {fileID: 2677584607891178421, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: m_RootOrder
@@ -3386,6 +3392,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 5106717300150948914, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: m_Name
@@ -3407,6 +3414,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1902030273
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
     - target: {fileID: 8759575946316033864, guid: 6e117297e82f2f9419c5069496c29b68,
         type: 3}
       propertyPath: m_Name
@@ -6489,6 +6498,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 509392443}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &510642657
 GameObject:
   m_ObjectHideFlags: 0
@@ -6539,6 +6549,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 --- !u!1001 &515413731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6700,7 +6712,10 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+<<<<<<< HEAD
   - component: {fileID: 519420030}
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6716,6 +6731,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+<<<<<<< HEAD
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6750,6 +6766,8 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -6801,10 +6819,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.34802824, y: -2.2055287, z: -6.8660884}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 44188524}
+=======
+  m_LocalPosition: {x: -0.85, y: -0.57, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16708,6 +16732,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1814965369}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1825791633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8759575946316033864, guid: 6e117297e82f2f9419c5069496c29b68,
@@ -16739,6 +16764,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+=======
+>>>>>>> parent of f6fd616 (Revert "Merge branch 'master' of https://github.com/A-G-K/MarioReplica")
 --- !u!1001 &1831377256
 PrefabInstance:
   m_ObjectHideFlags: 0
