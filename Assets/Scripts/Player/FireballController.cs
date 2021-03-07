@@ -6,8 +6,8 @@ public class FireballController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    private Vector2 travelVelocity;
 
-    [SerializeField] private Vector2 setVelocity;
     [SerializeField] private AnimationClip clipInfo;
 
 
@@ -17,14 +17,20 @@ public class FireballController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
 
-        rb.velocity = setVelocity;
+        rb.velocity = travelVelocity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rb.velocity.y < setVelocity.y)
-            rb.velocity = setVelocity;
+        if (rb.velocity.y < travelVelocity.y)
+            rb.velocity = travelVelocity;
+    }
+
+    public void SetXVelocityDir(int _dir)
+    {
+        travelVelocity = new Vector2(travelVelocity.x * _dir, travelVelocity.y);
+        transform.localScale = new Vector2(_dir, 1);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -40,7 +46,7 @@ public class FireballController : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector2 (setVelocity.x, -setVelocity.y);
+            rb.velocity = new Vector2 (travelVelocity.x, -travelVelocity.y);
         }
     }
 
