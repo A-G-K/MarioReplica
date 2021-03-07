@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PipeController : MonoBehaviour
 {
-    [SerializeField] GameObject OtherPipe;
+    [SerializeField] private GameObject otherPipe;
     private GameObject player;
-    private CameraScript cameraScript;
+    private PipeMovement pipeMovement;
 
     public enum PipeExit { Entry, Underground, Exit }
     [SerializeField] private PipeExit pipeExit; // Used to check where the pipe exit is so that the camera moves properly
@@ -14,41 +14,43 @@ public class PipeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Mario");
-        cameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        pipeMovement = player.GetComponent<PipeMovement>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(player.GetComponent<Rigidbody2D>().velocity.y == 0)
+        if (player.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
-            if(Input.GetAxisRaw("Vertical") < 0)
-            {
-                Teleport();
+            if (!pipeMovement.movingInPipe)
+            { 
+                if (Input.GetAxisRaw("Vertical") < 0)
+                {
+                    Teleport();
+                }
             }
         }
     }
 
     private void Teleport()
     {
-        // do animation
-        player.transform.position = OtherPipe.transform.position;
+        int exit = 3;
 
-        if(pipeExit == PipeExit.Entry)
+        if (pipeExit == PipeExit.Entry) // Exit pipe is the entry to underground (above ground)
         {
-            //cameraScript.MoveCamEntryPipe();
+            exit = 1;
         }
 
-        else if (pipeExit == PipeExit.Exit)
+        else if (pipeExit == PipeExit.Exit) // Exit pipe is the exit to the underground (above ground)
         {
-            cameraScript.MoveCameraReturnPipe();
+            exit = 2;
         }
 
-        else if (pipeExit == PipeExit.Underground)
+        else if (pipeExit == PipeExit.Underground) // Exit pipe is underground
         {
-            cameraScript.MoveCamUnderground();
+            exit = 3;
         }
 
-        // do exit animation
+        pipeMovement.Entry(gameObject.transform.position.x, otherPipe.transform.position, exit);   // do animation
     }
 }
