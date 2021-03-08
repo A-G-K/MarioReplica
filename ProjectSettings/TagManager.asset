@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Managers
   - ConstantManagers
+  - Enemy
+  - LeftTopEnemy
+  - RightTopEnemy
   layers:
   - Default
   - TransparentFX
@@ -40,6 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2038967095
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 2392937023
     locked: 0
