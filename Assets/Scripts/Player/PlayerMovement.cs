@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded = false;
     private float xSpeed = 0f;
     private bool faceRight = true;
+
+    private RigidbodyConstraints2D currentConstraints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         rb2d = GetComponent<Rigidbody2D>();
         pAnimator = GetComponentInChildren<Animator>();
+
+        currentConstraints = RigidbodyConstraints2D.FreezeRotation;
+        rb2d.constraints = currentConstraints;
     }
 
     // Update is called once per frame
@@ -89,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
+                Debug.Log("PRESSED JUMP");
                 Jump();
             }
         }
@@ -107,8 +114,10 @@ public class PlayerMovement : MonoBehaviour
     //makes player jump
     private void Jump()
     {
+        Debug.Log("CHECKING");
         if (grounded)
         {
+            Debug.Log("JUMPED");
             rb2d.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             grounded = false;
         }
@@ -136,5 +145,19 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scale = playerT.localScale;
         scale.x *= -1;
         playerT.localScale = scale;
+    }
+
+    //Returns direction of character
+    public bool isFacingRight() { return faceRight; }
+
+    public IEnumerator TempFreezeMovement(float delay)
+    {
+        currentConstraints = RigidbodyConstraints2D.FreezeAll;
+        rb2d.constraints = currentConstraints;
+
+        yield return new WaitForSeconds(delay);
+
+        currentConstraints = RigidbodyConstraints2D.FreezeRotation;
+        rb2d.constraints = currentConstraints;
     }
 }
