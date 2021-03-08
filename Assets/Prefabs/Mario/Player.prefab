@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2677584607891178421}
   - component: {fileID: 8759575946316033870}
-  - component: {fileID: 8759575946316033865}
+  - component: {fileID: 2696133530889890086}
   - component: {fileID: 144538324838108523}
   m_Layer: 0
   m_Name: Player
@@ -188,7 +188,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8759575946316033865
+--- !u!114 &2696133530889890086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,19 +197,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8759575946316033864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e74f88c3a8bde4da312a7701ccd8bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 000e3c74feeb8a74bbee6e7cd93d651d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheckRadius: 0.05
-  hFrrictionMultiplier: 10
-  lowJumpMultiplier: 3
-  fallMultiplier: 4
-  jumpHeight: 12
-  maxSpeed: 5
-  accelTime: 0.1
+  hFrrictionMultiplier: 1
+  lowJumpMultiplier: 2
+  fallMultiplier: 2
+  jumpHeight: 5
+  maxSpeed: 20
+  accelTime: 0.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   groundCheckT: {fileID: 5106717300150948915}
   canMove: 0
 --- !u!70 &144538324838108523
