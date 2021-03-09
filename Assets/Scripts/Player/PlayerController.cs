@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
         ////jump sounds
         //if ((currentMarioState == MarioState.SMALL) && Input.GetKeyDown(KeyCode.W))
-        
+
         //    {
         //        sfxManager.PlaySound(1);
         //    }
@@ -79,8 +79,8 @@ public class PlayerController : MonoBehaviour
         //        sfxManager.PlaySound(2);
         //    }
         //}
-    
 
+    }
 
     //Increases the cureent MarioState
     public void IncreaseMarioState()
