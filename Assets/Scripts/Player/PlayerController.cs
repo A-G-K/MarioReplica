@@ -68,19 +68,19 @@ public class PlayerController : MonoBehaviour
             DecreaseMarioState();
         }
 
-        ////jump sounds
-        //if ((currentMarioState == MarioState.SMALL) && Input.GetKeyDown(KeyCode.W))
+        //jump sounds
+        if ((currentMarioState == MarioState.SMALL) && Input.GetKeyDown(KeyCode.Space))
 
-        //    {
-        //        sfxManager.PlaySound(1);
-        //    }
-        //    else if ((currentMarioState == MarioState.BIG || currentMarioState == MarioState.FIRE) && Input.GetKeyDown(KeyCode.W))
-        //{
-        //        sfxManager.PlaySound(2);
-        //    }
-        //}
-
+        {
+            sfxManager.PlaySound(1);
+        }
+        else if ((currentMarioState == MarioState.BIG || currentMarioState == MarioState.FIRE) && Input.GetKeyDown(KeyCode.Space))
+        {
+            sfxManager.PlaySound(2);
+        }
     }
+
+
 
     //Increases the cureent MarioState
     public void IncreaseMarioState()
