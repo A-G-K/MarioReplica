@@ -31,10 +31,10 @@ public class ItemBlockController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            playerController = collision.gameObject.GetComponent<PlayerController>();
             ContactPoint2D point = collision.GetContact(0);
             if(point.otherCollider == bottomCollider)
             {
+                playerController = collision.gameObject.GetComponent<PlayerController>();
                 HitBlock();
             }
         }
@@ -54,47 +54,32 @@ public class ItemBlockController : MonoBehaviour
             if(playerController.GetMarioState() == PlayerController.MarioState.SMALL)
             {
                 createdObject = Instantiate(mushroom, transform.position, Quaternion.identity);
-                StartCoroutine(MoveItem());
+                //StartCoroutine(MoveItem());
             } 
             else
             {
                 createdObject = Instantiate(flower, transform.position, Quaternion.identity);
-                StartCoroutine(MoveItem());
+                //StartCoroutine(MoveItem());
             }
         }
 
         else if (itemInBox == Item.Star)
         {
             createdObject = Instantiate(star, transform.position, Quaternion.identity);
-            StartCoroutine(MoveItem());
+            //StartCoroutine(MoveItem());
         }
 
         else if (itemInBox == Item.Life)
         {
             createdObject = Instantiate(life, transform.position, Quaternion.identity);
-            StartCoroutine(MoveItem());
+            //StartCoroutine(MoveItem());
         }
 
         Instantiate(emptyBox, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
-    private IEnumerator MoveItem()
-    {
-        MoveMushrooms(false);
-        CollidersOn(false);
-        for(int i = 0; i < 6; i++)
-        {
-            Debug.Log("moving up " + i);
-            yield return new WaitForSeconds(0.1f);
-            Debug.Log("after");
-            createdObject.transform.position = new Vector2(createdObject.transform.position.x, createdObject.transform.position.y + 0.11f);
-        }
-
-        MoveMushrooms(true);
-        CollidersOn(true);
-    }
-
+    /*
     private void MoveMushrooms(bool move)
     {
         if (createdObject.GetComponent<RedMushroomController>())
@@ -137,5 +122,5 @@ public class ItemBlockController : MonoBehaviour
         {
             collider.enabled = col;
         }
-    }
+    }*/
 }
