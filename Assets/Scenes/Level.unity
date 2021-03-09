@@ -2694,12 +2694,12 @@ PrefabInstance:
     - target: {fileID: 2677584607891178421, guid: 9f9584defc106ee4193f8da5cc3b1394,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.64
+      value: 100.93
       objectReference: {fileID: 0}
     - target: {fileID: 2677584607891178421, guid: 9f9584defc106ee4193f8da5cc3b1394,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 2677584607891178421, guid: 9f9584defc106ee4193f8da5cc3b1394,
         type: 3}
@@ -17799,6 +17799,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3777632955926687821, guid: d0f309de9a5cac9448a4c2789cd6c5f8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4237715251765551371, guid: d0f309de9a5cac9448a4c2789cd6c5f8,
         type: 3}
       propertyPath: m_Size.y
@@ -20979,7 +20984,7 @@ RectTransform:
   m_Children:
   - {fileID: 1319626251}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -58428,7 +58433,7 @@ PrefabInstance:
         type: 3}
       propertyPath: StageClearedCanvas
       value: 
-      objectReference: {fileID: 758238852}
+      objectReference: {fileID: 758238849}
     - target: {fileID: 1132283813987386594, guid: e44b94095e0cf494ab297ae8928f5511,
         type: 3}
       propertyPath: cameraT
@@ -58484,6 +58489,7 @@ MonoBehaviour:
   Underground: {fileID: 8300000, guid: cfcac8b49b58048498925c67a18ab9eb, type: 3}
   StageClear: {fileID: 8300000, guid: 75bf33180cf015f48ab93e7e600637db, type: 3}
   Die: {fileID: 8300000, guid: f06f75617cf661349b3dd35aa0e215ec, type: 3}
+  FlagPole: {fileID: 8300000, guid: 6ea20d7b0cd199b47989984baa273511, type: 3}
 --- !u!82 &692025522483923518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -58811,7 +58817,7 @@ PrefabInstance:
     - target: {fileID: 6368804155754168997, guid: 6a298479e29c24e408ce930a05e07eaa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6368804155754168997, guid: 6a298479e29c24e408ce930a05e07eaa,
         type: 3}

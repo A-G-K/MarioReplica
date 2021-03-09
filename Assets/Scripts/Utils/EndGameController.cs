@@ -11,12 +11,12 @@ public class EndGameController : MonoBehaviour
     void Start()
     {
         GameObject managers = GameObject.FindGameObjectWithTag("Managers");
-        uiManager = managers.GetComponent<UIManager>();
+        uiManager = managers.GetComponentInChildren<UIManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         flagController.movingPlayer = false;
-        //uiManager.end();
+        uiManager.EndLevel();
     }
 }
