@@ -97,4 +97,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void ReduceCurrentFireballs() { currentNumOfFireballs--; }
+
+    public MarioState GetMarioState()
+    {
+        return currentMarioState;
+    }
 }
