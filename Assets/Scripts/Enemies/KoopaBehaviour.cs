@@ -106,7 +106,7 @@ public class KoopaBehaviour : MonoBehaviour, IKillable
     public void KillSimple()
     {
         // There is no simple killed animation implemented so divert to KillAndFall
-        KillAndFall();
+        TurnIntoShell();
     }
 
     public void KillAndFall()

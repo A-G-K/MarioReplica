@@ -161,13 +161,14 @@ public class PlayerController : MonoBehaviour
             uiManager.score += 2000;
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "LeftTopEnemy")
+        else if (collision.collider.tag == "LeftTopEnemy" || collision.collider.tag == "RightTopEnemy")
         {
             Debug.Log("jumped on enemy");
             uiManager.score += 100;
-            collision.gameObject.GetComponent<IKillable>().KillAndFall();
+            collision.gameObject.GetComponent<IKillable>().KillSimple();
+            playerMovement.Hop();
         }
-        else if (collision.gameObject.tag == "Enemy")
+        else if (collision.collider.tag == "Enemy")
         {
             if (canBeHit)
             {
