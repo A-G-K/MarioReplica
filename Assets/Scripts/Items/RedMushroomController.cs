@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class RedMushroomController : MonoBehaviour
 {
-
+    [SerializeField] float velocity = 2.0f;
     private PlayerController pController;
+    bool goingRight = true;
+    private Rigidbody2D rigidBody;
     // Start is called before the first frame update
     void Start()
     {
-        pController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Update is called once per frame
+    void Update()
     {
-        if (collision.gameObject.tag == "Player")
+
+            if (goingRight)
+            {
+                rigidBody.velocity = new Vector2(velocity, rigidBody.velocity.y);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(-velocity, rigidBody.velocity.y);
+            }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Untagged")
         {
-            pController.IncreaseMarioState();
-            Destroy(gameObject);
+            goingRight = !goingRight;
         }
     }
 }
