@@ -45,15 +45,15 @@ public class UIManager : MonoBehaviour
         UpdateLives();
 
         //game over when time runs out
-        if (timeLeft < 0)
+        if (timeLeft < 0 || livesManager.lives == 0)
         {
-            livesManager.LoseLife();
+            SceneManager.LoadScene("Level");
         }
 
         ////reset level when R is pressed
         //if (Input.GetKeyDown(KeyCode.R))
         //{
-        //    SceneManager.LoadScene(1);
+        //    SceneManager.LoadScene("Level");
         //}
 
     }
