@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1427595260673160980}
   - component: {fileID: 6656924178885065749}
   - component: {fileID: 187528827123432483}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RedMushroom
   m_TagString: Mushroom
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4347245442111785774}
   - component: {fileID: 3473455482477385467}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2201930993463546749}
   - component: {fileID: 5325155177538760693}
   - component: {fileID: 7311276372722708310}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlockCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

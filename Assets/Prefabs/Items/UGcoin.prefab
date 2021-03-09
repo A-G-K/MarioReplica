@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8799256332754030586}
   - component: {fileID: 8799256332754030587}
   - component: {fileID: 2686956158538322877}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UGcoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

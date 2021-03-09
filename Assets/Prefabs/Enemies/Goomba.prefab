@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 141445336780403500}
   - component: {fileID: 1008591801731340084}
   - component: {fileID: 1425294685180841631}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goomba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00088876486, y: 0.19995025}
+  m_Offset: {x: 0.00088876486, y: 0.14649205}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37615544, y: 0.35482734}
+  m_Size: {x: 0.37615544, y: 0.24791095}
   m_EdgeRadius: 0.01
 --- !u!1 &141445337333166579
 GameObject:
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 141445337333166578}
   - component: {fileID: 141445337333166589}
   - component: {fileID: 141445337333166588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3885400094205059806}
   - component: {fileID: 8211994897587339109}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TopCollider
   m_TagString: LeftTopEnemy
   m_Icon: {fileID: 0}

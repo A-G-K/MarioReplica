@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2589459531217430947}
   - component: {fileID: 2416471344917723734}
   - component: {fileID: 4960232077066017283}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LifeMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

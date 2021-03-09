@@ -135,6 +135,11 @@ public class PlayerController : MonoBehaviour
             IncreaseMarioState();
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "LeftTopEnemy")
+        {
+            Debug.Log("jumped on enemy");
+            collision.gameObject.GetComponent<IKillable>().KillAndFall();
+        }
         else if (collision.gameObject.tag == "Enemy")
         {
             if (canBeHit)
