@@ -280,8 +280,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1902030273
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6529885380675641531, guid: 213f674aacb6cae48b8b08eb2d0171b9,
     type: 3}
@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 5858869286191702812}
   - component: {fileID: 5858869286191702813}
   - component: {fileID: 318035215924191060}
+  - component: {fileID: 8082771723106679893}
   m_Layer: 10
   m_Name: Koopa
   m_TagString: Enemy
@@ -404,6 +405,20 @@ MonoBehaviour:
   topCollider: {fileID: 6941870507207421775}
   leftTopCollider: {fileID: 5220937514122585876}
   rightTopCollider: {fileID: 4234614771521233679}
+  verticalForceOnDeath: 50
+--- !u!114 &8082771723106679893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858869286191702810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f063b83e9f743c998ae9021d47b3f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  belowY: -50
 --- !u!1 &7678056230573431182
 GameObject:
   m_ObjectHideFlags: 0

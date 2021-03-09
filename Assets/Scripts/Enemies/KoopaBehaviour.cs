@@ -1,8 +1,9 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 
-public class KoopaBehaviour : MonoBehaviour
+public class KoopaBehaviour : MonoBehaviour, IKillable
 {
     [SerializeField] private float shellMoveSpeed = 2f;
     [SerializeField] private Collider2D mainCollider;
@@ -10,10 +11,12 @@ public class KoopaBehaviour : MonoBehaviour
     [SerializeField] private CollisionEventer topCollider;
     [SerializeField] private CollisionEventer leftTopCollider;
     [SerializeField] private CollisionEventer rightTopCollider;
+    [SerializeField] private float verticalForceOnDeath = 50f;
 
     private BasicEnemy basicEnemy;
     private bool isShell;
     private bool hasSetShellMovement;
+    private Rigidbody2D rb;
 
     private bool IsShell
     {
@@ -33,6 +36,7 @@ public class KoopaBehaviour : MonoBehaviour
     {
         basicEnemy = GetComponent<BasicEnemy>();
         shellCollider.gameObject.SetActive(false);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -97,5 +101,26 @@ public class KoopaBehaviour : MonoBehaviour
         basicEnemy.CanMove = true;
         basicEnemy.IsMovingLeft = isMovingLeft;
         basicEnemy.moveSpeed = speed;
+    }
+
+    public void KillSimple()
+    {
+        // There is no simple killed animation implemented so divert to KillAndFall
+        KillAndFall();
+    }
+
+    public void KillAndFall()
+    {
+        // Disable all collisions
+        foreach (Collider2D col in GetComponents<Collider2D>().Concat(GetComponentsInChildren<Collider2D>()))
+        {
+            col.isTrigger = true;
+        }
+        
+        basicEnemy.SpriteAnimator.SetBool("IsFalling", true);
+        basicEnemy.CanMove = false;
+        
+        // Rise up the sprite
+        rb.AddForce(new Vector2(0, verticalForceOnDeath), ForceMode2D.Force);
     }
 }

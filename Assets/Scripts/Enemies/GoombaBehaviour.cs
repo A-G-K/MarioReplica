@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GoombaBehaviour : MonoBehaviour, IKillable
 {
-    [SerializeField] private float verticalForceOnDeath = 1f;
+    [SerializeField] private float verticalForceOnDeath = 50f;
 
 
     private Rigidbody2D rb;
