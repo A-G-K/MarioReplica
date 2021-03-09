@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviour
     private int maxNumOfFireballs = 2;
     private int currentNumOfFireballs = 0;
 
-    
-    
+
+    private LivesManager livesManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,10 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         anim = GetComponentInChildren<Animator>();
         playerCol = GetComponent<CapsuleCollider2D>();
+
+
+        GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
+        livesManager = constantManagers.GetComponentInChildren<LivesManager>();
     }
 
     // Update is called once per frame
@@ -78,6 +83,8 @@ public class PlayerController : MonoBehaviour
         {
             //Lives Manager . Lose Life
             Debug.Log("LOSE");
+            anim.SetTrigger("playerDie");
+            livesManager.LoseLife();
         }
     }
 
