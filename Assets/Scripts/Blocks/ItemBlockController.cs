@@ -23,7 +23,7 @@ public class ItemBlockController : MonoBehaviour
     void Start()
     {
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
-        coinsManager = constantManagers.GetComponentInChildren<CoinsManager>();
+        //coinsManager = constantManagers.GetComponentInChildren<CoinsManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

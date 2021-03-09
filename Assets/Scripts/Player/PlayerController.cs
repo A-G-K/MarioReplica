@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private int maxNumOfFireballs = 2;
     private int currentNumOfFireballs = 0;
 
+    [SerializeField] GameObject smallCollider;
+    [SerializeField] GameObject bigCollider;
+
+
 
     private LivesManager livesManager;
 
@@ -66,8 +70,10 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(playerMovement.TempFreezeMovement(1f));
             currentMarioState += 1;
-            anim.SetInteger("playerState", (int)currentMarioState);
+            anim.SetInteger("playerState", (int)currentMarioState);  
         }
+
+        UpdateMarioCollider();
     }
 
     //Decreases the cureent MarioState
@@ -86,6 +92,22 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("playerDie");
             livesManager.LoseLife();
         }
+
+        UpdateMarioCollider();
+    }
+
+    private void UpdateMarioCollider()
+    {
+        if (currentMarioState == MarioState.SMALL)
+        {
+            smallCollider.SetActive(true);
+            bigCollider.SetActive(false);
+        }
+        else
+        {
+            smallCollider.SetActive(false);
+            bigCollider.SetActive(true);
+        }
     }
 
     //Shoot a fireball in the direction the player is facing from a specified point
@@ -97,4 +119,23 @@ public class PlayerController : MonoBehaviour
     }
 
     public void ReduceCurrentFireballs() { currentNumOfFireballs--; }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mushroom")
+        {
+            IncreaseMarioState();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "FireFlower")
+        {
+            IncreaseMarioState();
+            IncreaseMarioState();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            DecreaseMarioState();
+        }
+    }
 }

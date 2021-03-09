@@ -10,6 +10,8 @@ TagManager:
   - LeftTopEnemy
   - RightTopEnemy
   - KillZone
+  - FireFlower
+  - Mushroom
   layers:
   - Default
   - TransparentFX
