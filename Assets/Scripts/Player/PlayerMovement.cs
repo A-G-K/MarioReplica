@@ -142,6 +142,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Hop()
+    {
+        rb2d.AddForce(Vector2.up * jumpHeight * 0.5f, ForceMode2D.Impulse);
+        grounded = false;
+    }
+
 
     //checks if grounded
     private bool CheckGrounded()
