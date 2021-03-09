@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 163585817}
   - component: {fileID: 163585819}
   - component: {fileID: 163585818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSprite
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5878421055901929152}
   - component: {fileID: 5964779773558545187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2340403960529047453}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireballShootPosition
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5106717300150948915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5346792814723837687}
   - component: {fileID: 5627428390957199338}
   - component: {fileID: 144538324838108523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ MonoBehaviour:
   groundCheckRadius: 0.05
   hFrrictionMultiplier: 10
   lowJumpMultiplier: 3
-  fallMultiplier: 4
+  fallMultiplier: 3
   jumpHeight: 12
   maxSpeed: 5
   accelTime: 0.1
@@ -349,7 +349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 26137285188930809}
   - component: {fileID: 8891033511779041876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
