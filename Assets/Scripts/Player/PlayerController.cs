@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bigCollider;
 
 
-
+    private SFXManager sfxManager;
+    private BackgroundMusicManager bgmManager;
     private LivesManager livesManager;
 
 
@@ -37,6 +38,9 @@ public class PlayerController : MonoBehaviour
 
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
         livesManager = constantManagers.GetComponentInChildren<LivesManager>();
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        sfxManager = managers.GetComponentInChildren<SFXManager>();
+        bgmManager = managers.GetComponentInChildren<BackgroundMusicManager>();
     }
 
     // Update is called once per frame
@@ -61,13 +65,27 @@ public class PlayerController : MonoBehaviour
         {
             DecreaseMarioState();
         }
-    }
+
+        ////jump sounds
+        //if ((currentMarioState == MarioState.SMALL) && Input.GetKeyDown(KeyCode.W))
+        
+        //    {
+        //        sfxManager.PlaySound(1);
+        //    }
+        //    else if ((currentMarioState == MarioState.BIG || currentMarioState == MarioState.FIRE) && Input.GetKeyDown(KeyCode.W))
+        //{
+        //        sfxManager.PlaySound(2);
+        //    }
+        //}
+    
+
 
     //Increases the cureent MarioState
     public void IncreaseMarioState()
     {
         if (currentMarioState != MarioState.FIRE)
         {
+            sfxManager.PlaySound(9);
             StartCoroutine(playerMovement.TempFreezeMovement(1f));
             currentMarioState += 1;
             anim.SetInteger("playerState", (int)currentMarioState);
@@ -81,6 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentMarioState != MarioState.SMALL)
         {
+            sfxManager.PlaySound(13);
             StartCoroutine(playerMovement.TempFreezeMovement(1f));
             currentMarioState -= 1;
             anim.SetInteger("playerState", (int)currentMarioState);
@@ -90,6 +109,7 @@ public class PlayerController : MonoBehaviour
             //Lives Manager . Lose Life
             Debug.Log("LOSE");
             anim.SetTrigger("playerDie");
+            bgmManager.PlaySound(4);
             livesManager.LoseLife();
         }
 
@@ -116,6 +136,7 @@ public class PlayerController : MonoBehaviour
         currentNumOfFireballs++;
         GameObject fireballGO = Instantiate(fireballPrefab, shootPosition.position, new Quaternion());
         fireballGO.GetComponent<FireballController>().Initialise(this, playerMovement.isFacingRight() ? 1 : -1);
+        sfxManager.PlaySound(11);
     }
 
     public void ReduceCurrentFireballs() { currentNumOfFireballs--; }

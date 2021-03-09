@@ -10,7 +10,7 @@ public class BackgroundMusicManager : MonoBehaviour
     public AudioClip Main;
     public AudioClip Underground;
     public AudioClip StageClear;
-    public AudioClip GameOver;
+    public AudioClip Die;
 
 
     public static BackgroundMusicManager Instance = null;
@@ -57,7 +57,7 @@ public class BackgroundMusicManager : MonoBehaviour
                     break;
 
                 case 4:
-                    BGMSource.PlayOneShot(GameOver);
+                    BGMSource.PlayOneShot(Die);
                     break;
             }
 
