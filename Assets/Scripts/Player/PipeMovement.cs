@@ -9,6 +9,8 @@ public class PipeMovement : MonoBehaviour
     private CapsuleCollider2D playerCollider;
     private CameraScript cameraScript;
     private Rigidbody2D rigidBody;
+    SFXManager sfxManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,7 @@ public class PipeMovement : MonoBehaviour
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         cameraScript = GameObject.FindGameObjectWithTag("Managers").GetComponentInChildren<CameraScript>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        sfxManager = GameObject.FindGameObjectWithTag("Managers").GetComponentInChildren<SFXManager>();
     }
 
     public void Entry(Vector2 EntryPipe, Vector2 otherPipe, PipeController.PipeExit exit)
@@ -23,6 +26,7 @@ public class PipeMovement : MonoBehaviour
         playerCollider = gameObject.GetComponentInChildren<CapsuleCollider2D>();
         playerCollider.enabled = false;
         MovingInPipe(true);
+        sfxManager.PlaySound(13);
         StartCoroutine(playerMovement.TempFreezeMovement(1.1f));
         StartCoroutine(EntryAnim(EntryPipe, otherPipe, exit));
     }

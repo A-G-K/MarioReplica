@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8799256332754030586}
   - component: {fileID: 8799256332754030587}
   - component: {fileID: 2686956158538322877}
-  - component: {fileID: 3199680332219143250}
+  - component: {fileID: -8016724941044211663}
   m_Layer: 0
   m_Name: UGcoin
   m_TagString: Untagged
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.14}
   m_EdgeRadius: 0
---- !u!114 &3199680332219143250
+--- !u!114 &-8016724941044211663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

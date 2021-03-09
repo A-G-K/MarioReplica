@@ -6,11 +6,14 @@ public class CoinsManager : MonoBehaviour
 {
     public int coins = 0;
     LivesManager livesManager;
+  
+
 
     private void Start()
     {
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
         livesManager = constantManagers.GetComponentInChildren<LivesManager>();
+     
     }
 
     public void AddCoin()
@@ -20,6 +23,7 @@ public class CoinsManager : MonoBehaviour
         {
             coins -= 100;
             livesManager.lives += 1;
+           
         }
     }
 }
