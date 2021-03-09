@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 163585817}
   - component: {fileID: 163585819}
   - component: {fileID: 163585818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -112,9 +112,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5878421055901929152}
   - component: {fileID: 5964779773558545187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,9 +158,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2340403960529047453}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireballShootPosition
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2359525693836681834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.079, y: 0.177, z: 0}
+  m_LocalPosition: {x: 0.111, y: 0.201, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2677584607891178421}
@@ -188,9 +188,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5106717300150948915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,9 +222,10 @@ GameObject:
   - component: {fileID: 2696133530889890086}
   - component: {fileID: 5346792814723837687}
   - component: {fileID: 5627428390957199338}
-  m_Layer: 0
+  - component: {fileID: 144538324838108523}
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,12 +280,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 000e3c74feeb8a74bbee6e7cd93d651d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   groundCheckRadius: 0.05
   hFrrictionMultiplier: 10
   lowJumpMultiplier: 3
-  fallMultiplier: 4
+  fallMultiplier: 3
   jumpHeight: 12
   maxSpeed: 5
   accelTime: 0.1
@@ -303,11 +304,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb27d2d28172a248ba6a2d6ab6ced25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   fireballPrefab: {fileID: 1351294162629917604, guid: 4cd6c25f2f3d6234fba67f919b8b2e4b,
     type: 3}
   shootPosition: {fileID: 2340403960529047453}
+  smallCollider: {fileID: 8781769229596823172}
+  bigCollider: {fileID: 385423817559187739}
 --- !u!114 &5627428390957199338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,8 +321,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb21fd09f7aec8e4eafb7648eec88eed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &8781769229596823172
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,9 +333,9 @@ GameObject:
   m_Component:
   - component: {fileID: 26137285188930809}
   - component: {fileID: 8891033511779041876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

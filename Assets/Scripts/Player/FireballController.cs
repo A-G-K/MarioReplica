@@ -40,13 +40,13 @@ public class FireballController : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             StartCoroutine(Explode());
-            //destroy enemy
+            col.gameObject.GetComponent<IKillable>().KillAndFall();
         }
-        else if (col.otherCollider.GetType().FullName == "UnityEngine.CircleCollider2D")   //Also check if col is with block
+        else if (col.otherCollider.GetType().FullName == "UnityEngine.CircleCollider2D" && col.gameObject.tag != "Player")   //Also check if col is with block
         {
             StartCoroutine(Explode());
         }
-        else
+        else if (col.gameObject.tag != "Player")
         {
             rb.velocity = new Vector2 (travelVelocity.x, -travelVelocity.y);
         }

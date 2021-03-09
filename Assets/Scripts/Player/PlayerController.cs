@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private int maxNumOfFireballs = 2;
     private int currentNumOfFireballs = 0;
 
+    [SerializeField] GameObject smallCollider;
+    [SerializeField] GameObject bigCollider;
+
+
 
     private LivesManager livesManager;
 
@@ -68,6 +72,8 @@ public class PlayerController : MonoBehaviour
             currentMarioState += 1;
             anim.SetInteger("playerState", (int)currentMarioState);
         }
+
+        UpdateMarioCollider();
     }
 
     //Decreases the cureent MarioState
@@ -86,6 +92,22 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("playerDie");
             livesManager.LoseLife();
         }
+
+        UpdateMarioCollider();
+    }
+
+    private void UpdateMarioCollider()
+    {
+        if (currentMarioState == MarioState.SMALL)
+        {
+            smallCollider.SetActive(true);
+            bigCollider.SetActive(false);
+        }
+        else
+        {
+            smallCollider.SetActive(false);
+            bigCollider.SetActive(true);
+        }
     }
 
     //Shoot a fireball in the direction the player is facing from a specified point
@@ -93,10 +115,29 @@ public class PlayerController : MonoBehaviour
     {
         currentNumOfFireballs++;
         GameObject fireballGO = Instantiate(fireballPrefab, shootPosition.position, new Quaternion());
-        fireballGO.GetComponent<FireballController>().Initialise(this, playerMovement.isFacingRight() ? 1 : -1);   
+        fireballGO.GetComponent<FireballController>().Initialise(this, playerMovement.isFacingRight() ? 1 : -1);
     }
 
     public void ReduceCurrentFireballs() { currentNumOfFireballs--; }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mushroom")
+        {
+            IncreaseMarioState();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "FireFlower")
+        {
+            IncreaseMarioState();
+            IncreaseMarioState();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            DecreaseMarioState();
+        }
+    }
 
     public MarioState GetMarioState()
     {
