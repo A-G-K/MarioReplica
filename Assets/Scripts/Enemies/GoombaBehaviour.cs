@@ -7,8 +7,11 @@ public class GoombaBehaviour : MonoBehaviour, IKillable
 {
     [SerializeField] private float verticalForceOnDeath = 1f;
 
+
     private Rigidbody2D rb;
     private BasicEnemy basicEnemy;
+
+    private SFXManager sfxManager;
 
     private void Awake()
     {
@@ -16,10 +19,17 @@ public class GoombaBehaviour : MonoBehaviour, IKillable
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        sfxManager = managers.GetComponentInChildren<SFXManager>();
+    }
+
     public void KillSimple()
     {
         basicEnemy.CanMove = false;
         basicEnemy.SpriteAnimator.SetBool("IsDead", true);
+        sfxManager.PlaySound(3);
         Destroy(gameObject, 0.3f);
     }
 
