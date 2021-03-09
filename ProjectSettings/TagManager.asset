@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - LeftTopEnemy
   - RightTopEnemy
+  - KillZone
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - ScreenEdge
   - 
   - 
   - 
