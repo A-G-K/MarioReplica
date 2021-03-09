@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(playerMovement.TempFreezeMovement(1f));
             currentMarioState += 1;
-            anim.SetInteger("playerState", (int)currentMarioState);  
+            anim.SetInteger("playerState", (int)currentMarioState);
         }
 
         UpdateMarioCollider();
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
     {
         currentNumOfFireballs++;
         GameObject fireballGO = Instantiate(fireballPrefab, shootPosition.position, new Quaternion());
-        fireballGO.GetComponent<FireballController>().Initialise(this, playerMovement.isFacingRight() ? 1 : -1);   
+        fireballGO.GetComponent<FireballController>().Initialise(this, playerMovement.isFacingRight() ? 1 : -1);
     }
 
     public void ReduceCurrentFireballs() { currentNumOfFireballs--; }
@@ -137,5 +137,10 @@ public class PlayerController : MonoBehaviour
         {
             DecreaseMarioState();
         }
+    }
+
+    public MarioState GetMarioState()
+    {
+        return currentMarioState;
     }
 }

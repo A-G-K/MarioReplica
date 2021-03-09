@@ -18,6 +18,7 @@ public class ItemBlockController : MonoBehaviour
     [SerializeField] private GameObject emptyBox;
 
     private GameObject createdObject;
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,12 @@ public class ItemBlockController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Mario")
+        if(collision.gameObject.tag == "Player")
         {
             ContactPoint2D point = collision.GetContact(0);
             if(point.otherCollider == bottomCollider)
             {
+                playerController = collision.gameObject.GetComponent<PlayerController>();
                 HitBlock();
             }
         }
@@ -42,56 +44,47 @@ public class ItemBlockController : MonoBehaviour
     {
         if(itemInBox == Item.Coin)
         {
-            Instantiate(coin, transform.position, Quaternion.identity);
+            Debug.Log("coin spawn");
+            Instantiate(coin, new Vector2(transform.position.x, transform.position.y + 0.2f), Quaternion.identity);
             coinsManager.AddCoin();
         }
 
         else if (itemInBox == Item.Powerup)
         {
-            //Check state of mario
-            //if state = small
-            //createdObject = Instantiate(mushroom, transform.position, Quaternion.identity);
-            //StartCoroutine(MoveItem());
-            //else
-            //Instantiate(flower, transform.position, Quaternion.identity);
-            //StartCoroutine(MoveItem());
+            if(playerController.GetMarioState() == PlayerController.MarioState.SMALL)
+            {
+                createdObject = Instantiate(mushroom, transform.position, Quaternion.identity);
+                //StartCoroutine(MoveItem());
+            } 
+            else
+            {
+                createdObject = Instantiate(flower, transform.position, Quaternion.identity);
+                //StartCoroutine(MoveItem());
+            }
         }
 
         else if (itemInBox == Item.Star)
         {
             createdObject = Instantiate(star, transform.position, Quaternion.identity);
-            StartCoroutine(MoveItem());
+            //StartCoroutine(MoveItem());
         }
 
         else if (itemInBox == Item.Life)
         {
             createdObject = Instantiate(life, transform.position, Quaternion.identity);
-            StartCoroutine(MoveItem());
+            //StartCoroutine(MoveItem());
         }
 
         Instantiate(emptyBox, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
-    private IEnumerator MoveItem()
-    {
-        MoveMushrooms(false);
-        CollidersOn(false);
-        for(int i = 0; i < 6; i++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            createdObject.transform.position = new Vector2(createdObject.transform.position.x, createdObject.transform.position.y + 0.11f);
-        }
-
-        MoveMushrooms(true);
-        CollidersOn(true);
-    }
-
+    /*
     private void MoveMushrooms(bool move)
     {
-        if (createdObject.gameObject == mushroom)
+        if (createdObject.GetComponent<RedMushroomController>())
         {
-            //MushroomController controller = createdObject.GetComponent<LifeMushroomController>();
+            RedMushroomController controller = createdObject.GetComponent<RedMushroomController>();
             //controller.canMove = move;
 
             Rigidbody2D rigidBody = createdObject.GetComponent<Rigidbody2D>();
@@ -104,8 +97,9 @@ public class ItemBlockController : MonoBehaviour
                 rigidBody.gravityScale = 0;
             }
         }
-        else if (createdObject.gameObject == life)
+        else if (createdObject.GetComponent<LifeMushroomController>())
         {
+            Debug.Log("created life");
             LifeMushroomController controller = createdObject.GetComponent<LifeMushroomController>();
             controller.canMove = move;
 
@@ -128,5 +122,5 @@ public class ItemBlockController : MonoBehaviour
         {
             collider.enabled = col;
         }
-    }
+    }*/
 }

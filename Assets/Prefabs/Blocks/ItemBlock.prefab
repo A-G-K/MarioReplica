@@ -119,12 +119,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomCollider: {fileID: 1949894998277757170}
   itemInBox: 0
-  coin: {fileID: 4771043154147164032, guid: 225ce1ca5eccfe640a783a8fd472c99b, type: 3}
+  coin: {fileID: 3732436196759994922, guid: 662a01fb4376e264db6d8ef69e8a09a1, type: 3}
   mushroom: {fileID: 0}
   flower: {fileID: 0}
   star: {fileID: 0}
   life: {fileID: 8044795130760216395, guid: 3debe88378ccbd3478d67e9e6d5d5311, type: 3}
-  emptyBox: {fileID: 0}
+  emptyBox: {fileID: 1685858429742315303, guid: f8d87b0378693b64694f17cce076419e,
+    type: 3}
 --- !u!61 &8865795057259248658
 BoxCollider2D:
   m_ObjectHideFlags: 0

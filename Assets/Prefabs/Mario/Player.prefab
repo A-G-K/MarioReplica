@@ -98,7 +98,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 000e3c74feeb8a74bbee6e7cd93d651d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   groundCheckRadius: 0.05
   hFrrictionMultiplier: 10
   lowJumpMultiplier: 3
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb27d2d28172a248ba6a2d6ab6ced25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   fireballPrefab: {fileID: 1351294162629917604, guid: 4cd6c25f2f3d6234fba67f919b8b2e4b,
     type: 3}
   shootPosition: {fileID: 2340403960529047453}
@@ -321,24 +321,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb21fd09f7aec8e4eafb7648eec88eed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!70 &144538324838108523
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759575946316033864}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.08483829}
-  m_Size: {x: 0.16, y: 0.17579155}
-  m_Direction: 0
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &8781769229596823172
 GameObject:
   m_ObjectHideFlags: 0
