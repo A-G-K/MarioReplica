@@ -120,8 +120,9 @@ MonoBehaviour:
   bottomCollider: {fileID: 1949894998277757170}
   itemInBox: 0
   coin: {fileID: 3732436196759994922, guid: 662a01fb4376e264db6d8ef69e8a09a1, type: 3}
-  mushroom: {fileID: 0}
-  flower: {fileID: 0}
+  mushroom: {fileID: 1427595260673160981, guid: 516787220cd29674c8db46e0ee608a4c,
+    type: 3}
+  flower: {fileID: 8419331675724922625, guid: 024d7983a9fa5f44cbe2f272938f213d, type: 3}
   star: {fileID: 0}
   life: {fileID: 8044795130760216395, guid: 3debe88378ccbd3478d67e9e6d5d5311, type: 3}
   emptyBox: {fileID: 1685858429742315303, guid: f8d87b0378693b64694f17cce076419e,
