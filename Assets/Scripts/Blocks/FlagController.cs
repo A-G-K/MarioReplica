@@ -45,7 +45,7 @@ public class FlagController : MonoBehaviour
     private IEnumerator MovingDownwards()
     {
         rigidBody.velocity = new Vector2(0f, -2f);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         movingPlayer = true;
         bgmManager.PlaySound(3);
     }
