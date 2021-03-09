@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlagController : MonoBehaviour
 {
@@ -48,5 +49,7 @@ public class FlagController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         movingPlayer = true;
         bgmManager.PlaySound(3);
+        yield return new WaitForSeconds(8f);
+        SceneManager.LoadScene("Level");
     }
 }
