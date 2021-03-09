@@ -8,7 +8,7 @@ public class PipeController : MonoBehaviour
     private GameObject player;
     private PipeMovement pipeMovement;
 
-    public enum PipeExit { Entry, Underground, Exit }
+    public enum PipeExit { Exit, Underground }
     [SerializeField] private PipeExit pipeExit; // Used to check where the pipe exit is so that the camera moves properly
 
     // Start is called before the first frame update
@@ -24,9 +24,19 @@ public class PipeController : MonoBehaviour
         {
             if (!pipeMovement.movingInPipe)
             { 
-                if (Input.GetAxisRaw("Vertical") < 0)
+                if(pipeExit == PipeExit.Underground)
                 {
-                    Teleport();
+                    if (Input.GetAxisRaw("Vertical") < 0)
+                    {
+                        Teleport();
+                    }
+                }
+                else if (pipeExit == PipeExit.Exit)
+                {
+                    if (Input.GetAxisRaw("Horizontal") > 0)
+                    {
+                        Teleport();
+                    }
                 }
             }
         }
@@ -34,23 +44,6 @@ public class PipeController : MonoBehaviour
 
     private void Teleport()
     {
-        int exit = 3;
-
-        if (pipeExit == PipeExit.Entry) // Exit pipe is the entry to underground (above ground)
-        {
-            exit = 1;
-        }
-
-        else if (pipeExit == PipeExit.Exit) // Exit pipe is the exit to the underground (above ground)
-        {
-            exit = 2;
-        }
-
-        else if (pipeExit == PipeExit.Underground) // Exit pipe is underground
-        {
-            exit = 3;
-        }
-
-        pipeMovement.Entry(gameObject.transform.position.x, otherPipe.transform.position, exit);   // do animation
+        pipeMovement.Entry(gameObject.transform.position, otherPipe.transform.position, pipeExit);   // do animation
     }
 }
