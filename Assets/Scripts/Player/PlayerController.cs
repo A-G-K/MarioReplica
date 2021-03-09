@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private LivesManager livesManager;
 
+    private bool canBeHit = true;
+    public float hitTimer = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -135,7 +137,17 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy")
         {
-            DecreaseMarioState();
+            if (canBeHit)
+            {
+                DecreaseMarioState();
+                canBeHit = false;
+                StartCoroutine(HitTimer());
+            }
         }
+    }
+    IEnumerator HitTimer()
+    {
+        yield return new WaitForSeconds(hitTimer);
+        canBeHit = true;
     }
 }
