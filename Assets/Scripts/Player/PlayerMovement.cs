@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheckT;
     private Vector2 refVel = Vector2.zero;
     private Animator pAnimator;
+    private float scaleMagnitude;
 
     
     public bool canMove;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerT = gameObject.transform;
+        scaleMagnitude = playerT.localScale.x;
         canMove = true;
         rb2d = GetComponent<Rigidbody2D>();
         pAnimator = GetComponentInChildren<Animator>();
@@ -44,10 +46,6 @@ public class PlayerMovement : MonoBehaviour
         pAnimator.SetFloat("speed", Mathf.Abs(xSpeed));
 
         //flip sprite around based on movement speed
-        if (faceRight && xSpeed < 0)
-            Flip();
-        if (!faceRight && xSpeed > 0)
-            Flip();
 
         if (canMove)
         {
@@ -109,6 +107,24 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * maxSpeed, rb2d.velocity.y);
         rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref refVel, accelTime);
         //Debug.Log("Moving " + Input.GetAxisRaw("Horizontal"));
+
+        if (faceRight && targetVelocity.x < 0)
+        {
+            faceRight = false;
+            Vector3 scale = playerT.localScale;
+            scale.x = scaleMagnitude * -1;
+            playerT.localScale = scale;
+
+        }
+
+        if (!faceRight && targetVelocity.x > 0)
+        {
+            faceRight = true;
+            Vector3 scale = playerT.localScale;
+            scale.x = scaleMagnitude;
+            playerT.localScale = scale;
+
+        }
     }
 
     //makes player jump

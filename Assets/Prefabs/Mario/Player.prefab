@@ -102,6 +102,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2359525693836681834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2340403960529047453}
+  m_Layer: 0
+  m_Name: FireballShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2340403960529047453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359525693836681834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.079, y: 0.177, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2677584607891178421}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5106717300150948914
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +172,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2677584607891178421}
   - component: {fileID: 8759575946316033870}
-  - component: {fileID: 8759575946316033865}
+  - component: {fileID: 2696133530889890086}
+  - component: {fileID: 5346792814723837687}
   - component: {fileID: 144538324838108523}
   m_Layer: 0
   m_Name: Player
@@ -164,6 +195,7 @@ Transform:
   m_Children:
   - {fileID: 5106717300150948915}
   - {fileID: 163585817}
+  - {fileID: 2340403960529047453}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -188,7 +220,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8759575946316033865
+--- !u!114 &2696133530889890086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,7 +229,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8759575946316033864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e74f88c3a8bde4da312a7701ccd8bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 000e3c74feeb8a74bbee6e7cd93d651d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheckRadius: 0.05
@@ -212,6 +244,21 @@ MonoBehaviour:
     m_Bits: 1
   groundCheckT: {fileID: 5106717300150948915}
   canMove: 0
+--- !u!114 &5346792814723837687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759575946316033864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb27d2d28172a248ba6a2d6ab6ced25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 1351294162629917604, guid: 4cd6c25f2f3d6234fba67f919b8b2e4b,
+    type: 3}
+  shootPosition: {fileID: 2340403960529047453}
 --- !u!70 &144538324838108523
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
