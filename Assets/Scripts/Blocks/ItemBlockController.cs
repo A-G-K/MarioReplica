@@ -20,11 +20,16 @@ public class ItemBlockController : MonoBehaviour
     private GameObject createdObject;
     private PlayerController playerController;
 
+    private SFXManager sfxManager;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
         coinsManager = constantManagers.GetComponentInChildren<CoinsManager>();
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        sfxManager = managers.GetComponentInChildren<SFXManager>();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,6 +49,7 @@ public class ItemBlockController : MonoBehaviour
     {
         if(itemInBox == Item.Coin)
         {
+            sfxManager.PlaySound(7);
             Debug.Log("coin spawn");
             Instantiate(coin, new Vector2(transform.position.x, transform.position.y + 0.2f), Quaternion.identity);
             coinsManager.AddCoin();
@@ -51,6 +57,7 @@ public class ItemBlockController : MonoBehaviour
 
         else if (itemInBox == Item.Powerup)
         {
+            sfxManager.PlaySound(8);
             if(playerController.GetMarioState() == PlayerController.MarioState.SMALL)
             {
                 createdObject = Instantiate(mushroom, transform.position, Quaternion.identity);
@@ -71,6 +78,7 @@ public class ItemBlockController : MonoBehaviour
 
         else if (itemInBox == Item.Life)
         {
+            sfxManager.PlaySound(8);
             createdObject = Instantiate(life, transform.position, Quaternion.identity);
             //StartCoroutine(MoveItem());
         }

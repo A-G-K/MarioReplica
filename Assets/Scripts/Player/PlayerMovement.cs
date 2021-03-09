@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool faceRight = true;
 
     private RigidbodyConstraints2D currentConstraints;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
         currentConstraints = RigidbodyConstraints2D.FreezeRotation;
         rb2d.constraints = currentConstraints;
+
     }
 
     // Update is called once per frame
@@ -136,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("JUMPED");
             rb2d.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             grounded = false;
+           
         }
     }
 

@@ -25,6 +25,10 @@ public class KoopaBehaviour : MonoBehaviour
         }
     }
 
+
+    private SFXManager sfxManager;
+
+
     private void Awake()
     {
         basicEnemy = GetComponent<BasicEnemy>();
@@ -33,6 +37,11 @@ public class KoopaBehaviour : MonoBehaviour
 
     private void Start()
     {
+
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        sfxManager = managers.GetComponentInChildren<SFXManager>();
+
+
         // We need to do this, just in case we have an animator to setup
         IsShell = isShell;
 
@@ -40,6 +49,7 @@ public class KoopaBehaviour : MonoBehaviour
         {
             TurnIntoShell();
             basicEnemy.CanMove = false;
+
         };
 
         leftTopCollider.OnCollisionEnter2DEvent += collision2d =>
@@ -76,6 +86,7 @@ public class KoopaBehaviour : MonoBehaviour
 
     private void TurnIntoShell()
     {
+        sfxManager.PlaySound(3);
         IsShell = true;
         mainCollider.gameObject.SetActive(false);
         shellCollider.gameObject.SetActive(true);

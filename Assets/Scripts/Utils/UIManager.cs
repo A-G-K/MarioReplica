@@ -13,23 +13,28 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI livesText;
 
-    float timeLeft = 400.0f;
+    [SerializeField] private Canvas StageClearedCanvas;
 
-    //player character object
-    //private PlayerController playerController;
+
+    float timeLeft = 400.0f;
 
     LivesManager livesManager;
     CoinsManager coinsManager;
+    private BackgroundMusicManager bgmManager;
+
+
     public int score = 0;
 
     void Start()
     {
-        //initialize player object
-        //GameObject mario = GameObject.Find("Mario");
-        //playerController = mario.GetComponent<PlayerController>();
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
         livesManager = constantManagers.GetComponentInChildren<LivesManager>();
         coinsManager = constantManagers.GetComponentInChildren<CoinsManager>();
+
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        bgmManager = managers.GetComponentInChildren<BackgroundMusicManager>();
+
+
     }
 
     void Update()
@@ -86,6 +91,7 @@ public class UIManager : MonoBehaviour
     {
         score += (int)Mathf.Round(timeLeft);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("LevelCleared");
+        bgmManager.PlaySound(3);
+        StageClearedCanvas.GetComponent<Canvas>().enabled = true;
     }
 }
