@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlagController : MonoBehaviour
 {
     Rigidbody2D rigidBody;
-    bool movingPlayer = false;
+    public bool movingPlayer = false;
 
     // Start is called before the first frame update
     void Start()

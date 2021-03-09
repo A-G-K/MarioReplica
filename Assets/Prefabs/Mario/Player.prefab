@@ -68,10 +68,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1902030273
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1509298647979629103, guid: 213f674aacb6cae48b8b08eb2d0171b9,
+  m_Sprite: {fileID: -1975635887328401948, guid: 213f674aacb6cae48b8b08eb2d0171b9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,8 +146,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00093504786, y: 0.1622126}
-  m_Size: {x: 0.16633171, y: 0.3244252}
+  m_Offset: {x: -0.00013515353, y: 0.1622126}
+  m_Size: {x: 0.14492768, y: 0.3244252}
   m_Direction: 0
 --- !u!1 &2359525693836681834
 GameObject:
@@ -381,6 +381,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0021473765, y: 0.08341167}
-  m_Size: {x: 0.137236, y: 0.16682334}
+  m_Offset: {x: -0.0000295043, y: 0.08341167}
+  m_Size: {x: 0.10327637, y: 0.16682334}
   m_Direction: 0
