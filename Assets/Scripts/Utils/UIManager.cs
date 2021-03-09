@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
         //game over when time runs out
         if (timeLeft < 0 || livesManager.lives == 0)
         {
-            SceneManager.LoadScene("Level");
+            SceneManager.LoadScene("GameOver");
         }
 
         ////reset level when R is pressed
@@ -63,9 +63,9 @@ public class UIManager : MonoBehaviour
     {
         if (timeRunning)
         {
-            timeLeft -= Time.deltaTime;
+            timeLeft -= Time.deltaTime*2;
         }
-        timeText.text = "TIME " + Mathf.Round(timeLeft);
+        timeText.text = "TIME  " + Mathf.Round(timeLeft);
     }
 
     //update score UI text
@@ -97,6 +97,7 @@ public class UIManager : MonoBehaviour
     public void HitFlagPole()
     {
         score += (int)Mathf.Round(timeLeft);
+        timeLeft = 0;
         timeRunning = false;
     }
 }
