@@ -326,7 +326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEVEL CLEARED
+  m_text: STAGE CLEARED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af70e3cec4e7ecd43968c60f1242745e, type: 2}
   m_sharedMaterial: {fileID: 2322592704610266399, guid: af70e3cec4e7ecd43968c60f1242745e,
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 988492688}
   - component: {fileID: 988492687}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StageClearCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
