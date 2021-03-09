@@ -68,10 +68,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1902030273
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1509298647979629103, guid: 213f674aacb6cae48b8b08eb2d0171b9,
+  m_Sprite: {fileID: -1975635887328401948, guid: 213f674aacb6cae48b8b08eb2d0171b9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -146,8 +146,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00093504786, y: 0.1622126}
-  m_Size: {x: 0.16633171, y: 0.3244252}
+  m_Offset: {x: -0.00013515353, y: 0.1622126}
+  m_Size: {x: 0.14492768, y: 0.3244252}
   m_Direction: 0
 --- !u!1 &2359525693836681834
 GameObject:
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2696133530889890086}
   - component: {fileID: 5346792814723837687}
   - component: {fileID: 5627428390957199338}
-  - component: {fileID: 144538324838108523}
+  - component: {fileID: 5838261009019740344}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 000e3c74feeb8a74bbee6e7cd93d651d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   groundCheckRadius: 0.05
   hFrrictionMultiplier: 10
   lowJumpMultiplier: 3
@@ -304,13 +304,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb27d2d28172a248ba6a2d6ab6ced25, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 1351294162629917604, guid: 4cd6c25f2f3d6234fba67f919b8b2e4b,
     type: 3}
   shootPosition: {fileID: 2340403960529047453}
   smallCollider: {fileID: 8781769229596823172}
   bigCollider: {fileID: 385423817559187739}
+  hitTimer: 2
 --- !u!114 &5627428390957199338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,8 +322,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb21fd09f7aec8e4eafb7648eec88eed, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5838261009019740344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759575946316033864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea537fa61cc0104fabafbe40588838d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingInPipe: 0
 --- !u!1 &8781769229596823172
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +381,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0021473765, y: 0.08341167}
-  m_Size: {x: 0.137236, y: 0.16682334}
+  m_Offset: {x: -0.0000295043, y: 0.08341167}
+  m_Size: {x: 0.10327637, y: 0.16682334}
   m_Direction: 0

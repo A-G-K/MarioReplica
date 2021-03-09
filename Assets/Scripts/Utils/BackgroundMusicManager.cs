@@ -11,6 +11,7 @@ public class BackgroundMusicManager : MonoBehaviour
     public AudioClip Underground;
     public AudioClip StageClear;
     public AudioClip Die;
+    public AudioClip FlagPole;
 
 
     public static BackgroundMusicManager Instance = null;
@@ -59,6 +60,10 @@ public class BackgroundMusicManager : MonoBehaviour
                 case 4:
                     BGMSource.PlayOneShot(Die);
                     break;
+                case 5:
+                    BGMSource.PlayOneShot(FlagPole);
+                    break;
+
             }
 
         }

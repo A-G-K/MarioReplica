@@ -57,9 +57,7 @@ public class LifeMushroomController : MonoBehaviour
         CollidersOn(false);
         for (int i = 0; i < 60; i++)
         {
-            Debug.Log("moving up " + i);
             yield return new WaitForSeconds(0.01f);
-            Debug.Log("after");
             gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.011f);
         }
 
@@ -70,8 +68,7 @@ public class LifeMushroomController : MonoBehaviour
     private void MoveMushrooms(bool move)
     {
         Debug.Log("created life");
-        LifeMushroomController controller = gameObject.GetComponent<LifeMushroomController>();
-        controller.canMove = move;
+        canMove = move;
 
         Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
         if (move)

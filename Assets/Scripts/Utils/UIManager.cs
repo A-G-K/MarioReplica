@@ -13,15 +13,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI livesText;
 
-    [SerializeField] private Canvas StageClearedCanvas;
+    [SerializeField] private GameObject StageClearedCanvas;
 
 
     float timeLeft = 400.0f;
+    private bool timeRunning = true;
 
     LivesManager livesManager;
     CoinsManager coinsManager;
     private BackgroundMusicManager bgmManager;
-
 
     public int score = 0;
 
@@ -61,7 +61,10 @@ public class UIManager : MonoBehaviour
     //update time counter and UI text
     public void UpdateTimer()
     {
-        timeLeft -= Time.deltaTime;
+        if (timeRunning)
+        {
+            timeLeft -= Time.deltaTime;
+        }
         timeText.text = "TIME " + Mathf.Round(timeLeft);
     }
 
@@ -86,12 +89,14 @@ public class UIManager : MonoBehaviour
     //SCENE MANAGEMENT
 
     //coroutine to load level cleared scene after a delay
-    public IEnumerator EndLevel()
+    public void EndLevel()
+    {
+        StageClearedCanvas.SetActive(true);
+    }
 
+    public void HitFlagPole()
     {
         score += (int)Mathf.Round(timeLeft);
-        yield return new WaitForSeconds(2f);
-        bgmManager.PlaySound(3);
-        StageClearedCanvas.GetComponent<Canvas>().enabled = true;
+        timeRunning = false;
     }
 }

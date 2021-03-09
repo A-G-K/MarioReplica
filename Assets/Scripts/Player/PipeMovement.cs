@@ -42,7 +42,7 @@ public class PipeMovement : MonoBehaviour
         } 
         else
         {
-            rigidBody.gravityScale = 1;
+            rigidBody.gravityScale = 2;
         }
     }
 

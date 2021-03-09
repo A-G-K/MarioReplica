@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (System.Math.Abs(rb2d.velocity.x) < 0.05)
                 {
-                    rb2d.velocity = Vector2.zero;
+                    rb2d.velocity = new Vector2(0f, rb2d.velocity.y);
                 }
                 else if (rb2d.velocity.x > 0)
                 {
