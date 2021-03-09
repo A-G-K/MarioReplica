@@ -30,6 +30,7 @@ public class GoombaBehaviour : MonoBehaviour, IKillable
         basicEnemy.CanMove = false;
         basicEnemy.SpriteAnimator.SetBool("IsDead", true);
         sfxManager.PlaySound(3);
+        GetComponent<BoxCollider2D>().enabled = false;
         Destroy(gameObject, 0.2f);
     }
 
