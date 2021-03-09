@@ -8,6 +8,7 @@ public class FlagController : MonoBehaviour
     public bool movingPlayer = false;
     UIManager uiManager;
     BackgroundMusicManager bgmManager;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class FlagController : MonoBehaviour
         GameObject managers = GameObject.FindGameObjectWithTag("Managers");
         uiManager = managers.GetComponentInChildren<UIManager>();
         bgmManager = managers.GetComponentInChildren<BackgroundMusicManager>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class FlagController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            anim.SetTrigger("FlagpoleHit");
             PlayerMovement playerMovement = collision.gameObject.GetComponentInParent<PlayerMovement>();
             rigidBody = collision.gameObject.GetComponentInParent<Rigidbody2D>();
             uiManager.HitFlagPole();
@@ -42,7 +45,7 @@ public class FlagController : MonoBehaviour
     private IEnumerator MovingDownwards()
     {
         rigidBody.velocity = new Vector2(0f, -2f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         movingPlayer = true;
         bgmManager.PlaySound(3);
     }
