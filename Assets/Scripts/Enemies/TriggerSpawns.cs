@@ -7,7 +7,7 @@ public class TriggerSpawns : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (true)
         {
             Debug.Log("triggerSpawning");
             collision.gameObject.GetComponent<EnemySpawner>().SpawnEnemy();
