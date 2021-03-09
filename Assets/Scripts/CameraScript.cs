@@ -8,10 +8,17 @@ public class CameraScript : MonoBehaviour
     [SerializeField] float moveOffset;
     public bool canCameraMove = true;
 
+    BackgroundMusicManager bgmManager;
+
     // Start is called before the first frame update
     void Start()
     {
         cameraT.position = cameraStartT.position;
+
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        bgmManager = managers.GetComponentInChildren<BackgroundMusicManager>();
+
+        bgmManager.PlaySound(1);
     }
 
     // Update is called once per frame
@@ -31,6 +38,7 @@ public class CameraScript : MonoBehaviour
     //use transform of empty object at position you want camera to teleport to
     public void MoveCamUnderground()
     {
+        bgmManager.PlaySound(2);
         cameraT.position = undergroundCamT.position;
         canCameraMove = false;
     }
@@ -41,6 +49,7 @@ public class CameraScript : MonoBehaviour
     {
         cameraT.position = returnPipeT.position;
         canCameraMove = true;
+        bgmManager.PlaySound(1);
 
     }
 }

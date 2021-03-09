@@ -15,21 +15,20 @@ public class UIManager : MonoBehaviour
 
     float timeLeft = 400.0f;
 
-    //player character object
-    //private PlayerController playerController;
-
     LivesManager livesManager;
     CoinsManager coinsManager;
+   
     public int score = 0;
 
     void Start()
     {
-        //initialize player object
-        //GameObject mario = GameObject.Find("Mario");
-        //playerController = mario.GetComponent<PlayerController>();
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
         livesManager = constantManagers.GetComponentInChildren<LivesManager>();
         coinsManager = constantManagers.GetComponentInChildren<CoinsManager>();
+       
+
+
+
     }
 
     void Update()

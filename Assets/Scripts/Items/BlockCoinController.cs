@@ -6,6 +6,7 @@ public class BlockCoinController : MonoBehaviour
 {
     CoinsManager coinsManager;
     UIManager uiManager;
+    SFXManager sfxManager;
     Rigidbody2D rigidBody;
     float timer = 0;
     [SerializeField] float velocity = 5;
@@ -18,10 +19,12 @@ public class BlockCoinController : MonoBehaviour
 
         GameObject managers = GameObject.FindGameObjectWithTag("Managers");
         uiManager = managers.GetComponentInChildren<UIManager>();
+        sfxManager = managers.GetComponentInChildren<SFXManager>();
 
         rigidBody = GetComponent<Rigidbody2D>();
 
         coinsManager.AddCoin();
+        sfxManager.PlaySound(7);
         uiManager.score += 200;
 
         rigidBody.gravityScale = 2;
