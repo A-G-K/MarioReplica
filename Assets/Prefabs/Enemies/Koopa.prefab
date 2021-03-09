@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2854737265359837310}
   - component: {fileID: 5718190394486043504}
   - component: {fileID: 1793827161957940223}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShellCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4219635851659730952}
   - component: {fileID: 2840962615975393232}
   - component: {fileID: 5220937514122585876}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftTopCollider
   m_TagString: LeftTopEnemy
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 5989108079115617558}
   - component: {fileID: 179619352350249828}
   - component: {fileID: 4234614771521233679}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightTopCollider
   m_TagString: RightTopEnemy
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5858869284132152968}
   - component: {fileID: 5858869284132152971}
   - component: {fileID: 5858869284132152970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 5858869286191702812}
   - component: {fileID: 5858869286191702813}
   - component: {fileID: 318035215924191060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Koopa
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7892452817076029712}
   - component: {fileID: 8946052143970299304}
   - component: {fileID: 6941870507207421775}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TopCollider
   m_TagString: LeftTopEnemy
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852044924721660344}
   - component: {fileID: 1070110145877561926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MainCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

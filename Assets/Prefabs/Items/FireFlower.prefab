@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3478347735205500060}
   - component: {fileID: 1590903459480379809}
   - component: {fileID: 4086506681224965538}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 8419331675724922626}
   - component: {fileID: 8419331675724922627}
   - component: {fileID: 8419331675724922624}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FireFlower
   m_TagString: FireFlower
   m_Icon: {fileID: 0}

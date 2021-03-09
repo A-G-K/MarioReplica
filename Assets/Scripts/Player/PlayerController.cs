@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private LivesManager livesManager;
 
+    private bool canBeHit = true;
+    public float hitTimer = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -133,14 +135,30 @@ public class PlayerController : MonoBehaviour
             IncreaseMarioState();
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "LeftTopEnemy")
+        {
+            Debug.Log("jumped on enemy");
+            collision.gameObject.GetComponent<IKillable>().KillAndFall();
+        }
         else if (collision.gameObject.tag == "Enemy")
         {
-            DecreaseMarioState();
+            if (canBeHit)
+            {
+                DecreaseMarioState();
+                canBeHit = false;
+                StartCoroutine(HitTimer());
+            }
         }
     }
 
     public MarioState GetMarioState()
     {
         return currentMarioState;
+    }
+
+    IEnumerator HitTimer()
+    {
+        yield return new WaitForSeconds(hitTimer);
+        canBeHit = true;
     }
 }
