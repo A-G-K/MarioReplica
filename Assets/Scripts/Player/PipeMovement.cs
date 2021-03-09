@@ -14,15 +14,16 @@ public class PipeMovement : MonoBehaviour
     void Start()
     {
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-        playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
-        cameraScript = GameObject.FindGameObjectWithTag("Respawn").GetComponent<CameraScript>();
+        cameraScript = GameObject.FindGameObjectWithTag("Managers").GetComponentInChildren<CameraScript>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     public void Entry(float x, Vector2 otherPipe, int exit)
     {
+        playerCollider = gameObject.GetComponentInChildren<CapsuleCollider2D>();
         playerCollider.enabled = false;
         MovingInPipe(true);
+        StartCoroutine(playerMovement.TempFreezeMovement(1.1f));
         StartCoroutine(EntryAnim(x, otherPipe, exit));
     }
 
@@ -44,7 +45,7 @@ public class PipeMovement : MonoBehaviour
     private IEnumerator EntryAnim(float x, Vector2 otherPipe, int exit)
     {
         //yield return new WaitForSeconds(1.4f);
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++) // Moving downwards animation
         {
             yield return new WaitForSeconds(0.1f);
             gameObject.transform.position = new Vector2(x, gameObject.transform.position.y - 0.1f);
@@ -55,33 +56,31 @@ public class PipeMovement : MonoBehaviour
 
     private IEnumerator ExitAnim(Vector2 otherPipe, int exit)
     {
-        gameObject.transform.position = new Vector2(otherPipe.x, otherPipe.y - 0.35f);
+        gameObject.transform.position = new Vector2(otherPipe.x, otherPipe.y - 0.35f); // Set position of player to other pipe
         //Debug.Log(gameObject.transform.position);
-        MoveCamera(exit);
+        MoveCamera(exit); // Move camera to other pipe
 
-        for (int i = 0; i < 10; i++)
+        if (exit == 1) // If the other pipe it above ground
         {
-            yield return new WaitForSeconds(0.1f);
-            gameObject.transform.position = new Vector2(otherPipe.x, gameObject.transform.position.y + 0.1f);
+            for (int i = 0; i < 10; i++) // Moving upwards animation
+            {
+                yield return new WaitForSeconds(0.1f);
+                gameObject.transform.position = new Vector2(otherPipe.x, gameObject.transform.position.y + 0.1f);
+            }
         }
 
-        playerCollider.enabled = true;
         MovingInPipe(false);
+        playerCollider.enabled = true;
     }
 
     private void MoveCamera(int exit)
     {
-        if (exit == 1) // Exit pipe is the entry to underground (above ground)
-        {
-            //cameraScript.MoveCamEntryPipe();
-        }
-
-        else if (exit == 2) // Exit pipe is the exit to the underground (above ground)
+        if (exit == 1) // Exit pipe is above ground
         {
             cameraScript.MoveCameraReturnPipe();
         }
 
-        else if (exit == 3) // Exit pipe is underground
+        else if (exit == 2) // Exit pipe is underground
         {
             cameraScript.MoveCamUnderground();
         }
