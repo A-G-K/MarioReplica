@@ -5,8 +5,8 @@ using UnityEngine;
 public class PipeController : MonoBehaviour
 {
     [SerializeField] private GameObject otherPipe;
-    private GameObject player;
-    private PipeMovement pipeMovement;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PipeMovement pipeMovement;
 
     public enum PipeExit { Exit, Underground }
     [SerializeField] private PipeExit pipeExit; // Used to check where the pipe exit is so that the camera moves properly
@@ -14,8 +14,8 @@ public class PipeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        pipeMovement = player.GetComponent<PipeMovement>();
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //pipeMovement = player.GetComponent<PipeMovement>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -18054,9 +18054,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6973958273743254232, guid: d0f309de9a5cac9448a4c2789cd6c5f8,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1499498881}
+    - target: {fileID: 6973958273743254232, guid: d0f309de9a5cac9448a4c2789cd6c5f8,
+        type: 3}
       propertyPath: otherPipe
       value: 
       objectReference: {fileID: 1266382505}
+    - target: {fileID: 6973958273743254232, guid: d0f309de9a5cac9448a4c2789cd6c5f8,
+        type: 3}
+      propertyPath: pipeMovement
+      value: 
+      objectReference: {fileID: 1499498882}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0f309de9a5cac9448a4c2789cd6c5f8, type: 3}
 --- !u!4 &639405341 stripped
@@ -41486,6 +41496,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496669302}
   m_CullTransparentMesh: 0
+--- !u!1 &1499498881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759575946316033864, guid: 9f9584defc106ee4193f8da5cc3b1394,
+    type: 3}
+  m_PrefabInstance: {fileID: 109237944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1499498882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5838261009019740344, guid: 9f9584defc106ee4193f8da5cc3b1394,
+    type: 3}
+  m_PrefabInstance: {fileID: 109237944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499498881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea537fa61cc0104fabafbe40588838d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1510419211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59675,9 +59703,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 684658240229784131, guid: e1ef6dcd349175948b67ea197310a8c2,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1499498881}
+    - target: {fileID: 684658240229784131, guid: e1ef6dcd349175948b67ea197310a8c2,
+        type: 3}
       propertyPath: otherPipe
       value: 
       objectReference: {fileID: 540599125}
+    - target: {fileID: 684658240229784131, guid: e1ef6dcd349175948b67ea197310a8c2,
+        type: 3}
+      propertyPath: pipeMovement
+      value: 
+      objectReference: {fileID: 1499498882}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ef6dcd349175948b67ea197310a8c2, type: 3}
 --- !u!1001 &692025522483923514
