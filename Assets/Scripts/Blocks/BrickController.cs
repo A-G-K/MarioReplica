@@ -25,7 +25,7 @@ public class BrickController : MonoBehaviour
                 playerController = collision.gameObject.GetComponent<PlayerController>();
                 if(playerController.GetMarioState() == PlayerController.MarioState.BIG || playerController.GetMarioState() == PlayerController.MarioState.FIRE)
                 {
-                    uiManager.score += 100;
+                    uiManager.score += 50;
                     Destroy(gameObject);
                 }
             }

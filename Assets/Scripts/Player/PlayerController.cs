@@ -22,9 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject smallCollider;
     [SerializeField] GameObject bigCollider;
 
-
-
     private LivesManager livesManager;
+    private UIManager uiManager;
 
     private bool canBeHit = true;
     public float hitTimer = 2f;
@@ -39,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
         GameObject constantManagers = GameObject.FindGameObjectWithTag("ConstantManagers");
         livesManager = constantManagers.GetComponentInChildren<LivesManager>();
+        GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+        uiManager = managers.GetComponentInChildren<UIManager>();
     }
 
     // Update is called once per frame
@@ -127,17 +128,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Mushroom")
         {
             IncreaseMarioState();
+            uiManager.score += 1000;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "FireFlower")
         {
             IncreaseMarioState();
             IncreaseMarioState();
+            uiManager.score += 2000;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "LeftTopEnemy")
         {
             Debug.Log("jumped on enemy");
+            uiManager.score += 100;
             collision.gameObject.GetComponent<IKillable>().KillAndFall();
         }
         else if (collision.gameObject.tag == "Enemy")
